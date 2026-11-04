@@ -1,26 +1,8 @@
-[gd_scene load_steps=20 format=4]
+[gd_scene load_steps=4 format=4]
 
-[ext_resource type="Script" uid="uid://cf8vflpy3tw5x" path="res://source/maps/overworld/overworld.gd" id="1_sillp"]
+[ext_resource type="Script" path="res://source/maps/overworld/overworld.gd" id="1_sillp"]
+[ext_resource type="TileSet" path="res://source/maps/overworld/overworld.tres" id="2_hukvr"]
 [ext_resource type="Script" path="res://scripts/file_city_actors.gd" id="20_actors"]
-[ext_resource type="TileSet" uid="uid://dso5fmpetw1ja" path="res://source/maps/overworld/overworld.tres" id="2_hukvr"]
-[ext_resource type="PackedScene" uid="uid://m5gm2t121jnv" path="res://source/maps/common/warper/warper.tscn" id="3_n833l"]
-[ext_resource type="PackedScene" uid="uid://c373qlyawo4a2" path="res://source/maps/pallet_town/player_house_1f.tscn" id="3_xnp21"]
-[ext_resource type="Texture2D" uid="uid://ep2ftuwn7ko8" path="res://assets/sprites/items/icons/item_icons.png" id="4_8a6jw"]
-[ext_resource type="PackedScene" uid="uid://frcnox7u1ra6" path="res://source/maps/pallet_town/player_house_2f.tscn" id="4_bsp47"]
-[ext_resource type="PackedScene" uid="uid://bxq8b7h4qppqi" path="res://source/player/player.tscn" id="4_lxh0y"]
-[ext_resource type="Script" uid="uid://bpr5jqp60g4d5" path="res://source/system/item/item_icon/item_icon.gd" id="5_wec52"]
-[ext_resource type="PackedScene" uid="uid://cpww7ic057jxy" path="res://source/maps/common/environment_area/environment_area.tscn" id="6_bsp47"]
-[ext_resource type="Texture2D" uid="uid://cqnb0oca14drf" path="res://assets/sprites/gui/backgrounds/bg_blue.png" id="7_akgie"]
-[ext_resource type="Resource" uid="uid://dw5gjjjwxarp0" path="res://source/system/item/resources/aurora_ticket.tres" id="7_bi2s7"]
-[ext_resource type="Texture2D" uid="uid://vs4sb5t4jpa1" path="res://assets/sprites/gui/inventory/inventory_list.png" id="8_ngjjw"]
-[ext_resource type="Texture2D" uid="uid://norqwc0f0bx7" path="res://assets/sprites/gui/inventory/inventory_dialog.png" id="9_kary1"]
-[ext_resource type="Texture2D" uid="uid://bbl6h3p3frko2" path="res://assets/sprites/gui/inventory/bags/bag_shadow.png" id="10_bl835"]
-[ext_resource type="Texture2D" uid="uid://di3f1uyghpmal" path="res://assets/sprites/gui/inventory/bags/berry_pouch.png" id="11_opg1a"]
-[ext_resource type="FontFile" uid="uid://c2on4rplk6ncr" path="res://assets/fonts/pokemon-firered-leafgreen-font.otf" id="12_kary1"]
-[ext_resource type="Texture2D" uid="uid://bb0bwgjoigooh" path="res://assets/sprites/gui/inventory/bags/arrows.png" id="13_bl835"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlpr"]
-size = Vector2(384, 320)
 
 [node name="Overworld" type="Node2D" node_paths=PackedStringArray("main_tilemap_layer")]
 script = ExtResource("1_sillp")
@@ -54,41 +36,9 @@ tile_set = ExtResource("2_hukvr")
 tile_map_data = PackedByteArray("AAAAAAEAAAAPAAoAAAABAAEAAAAQAAoAAAAAABMAAAAPAAoAAAABABMAAAAQAAoAAAAAABEAAAAPAAoAAAABABEAAAAQAAoAAAAAAA8AAAAPAAoAAAABAA8AAAAQAAoAAAAAAA0AAAAPAAoAAAABAA0AAAAQAAoAAAAAAAsAAAAPAAoAAAABAAsAAAAQAAoAAAAAAAkAAAAPAAoAAAABAAkAAAAQAAoAAAAAAAcAAAAPAAoAAAABAAcAAAAQAAoAAAAAAAUAAAAPAAoAAAABAAUAAAAQAAoAAAAAAAMAAAAPAAoAAAABAAMAAAAQAAoAAAAAAP//AAAPAAoAAAABAP//AAAQAAoAAAACABMAAAAPAAoAAAADABMAAAAQAAoAAAAEABMAAAAPAAoAAAAFABMAAAAQAAoAAAASABMAAAAPAAoAAAATABMAAAAQAAoAAAAUABMAAAAPAAoAAAAVABMAAAAQAAoAAAAWABMAAAAPAAoAAAAXABMAAAAQAAoAAAAWABEAAAAPAAoAAAAXABEAAAAQAAoAAAAWAA8AAAAPAAoAAAAXAA8AAAAQAAoAAAAWAA0AAAAPAAoAAAAXAA0AAAAQAAoAAAAWAAsAAAAPAAoAAAAXAAsAAAAQAAoAAAAWAAkAAAAPAAoAAAAXAAkAAAAQAAoAAAAWAAcAAAAPAAoAAAAXAAcAAAAQAAoAAAAWAAUAAAAPAAoAAAAXAAUAAAAQAAoAAAAWAAMAAAAPAAoAAAAXAAMAAAAQAAoAAAAWAAEAAAAPAAoAAAAXAAEAAAAQAAoAAAAWAP//AAAPAAoAAAAXAP//AAAQAAoAAAAUAP//AAAPAAoAAAAVAP//AAAQAAoAAAASAP//AAAPAAoAAAATAP//AAAQAAoAAAAQAP//AAAPAAoAAAARAP//AAAQAAoAAAAOAP//AAAPAAoAAAAPAP//AAAQAAoAAAAKAP//AAAPAAoAAAALAP//AAAQAAoAAAAIAP//AAAPAAoAAAAJAP//AAAQAAoAAAAGAP//AAAPAAoAAAAHAP//AAAQAAoAAAAEAP//AAAPAAoAAAAFAP//AAAQAAoAAAACAP//AAAPAAoAAAADAP//AAAQAAoAAAA=")
 tile_set = ExtResource("2_hukvr")
 
-[node name="PlayerHouse1F" parent="PalletTown" instance=ExtResource("3_xnp21")]
-position = Vector2(400, 160)
-
-[node name="PlayerHouseWarper" parent="PalletTown/PlayerHouse1F" node_paths=PackedStringArray("target") instance=ExtResource("3_n833l")]
-position = Vector2(56, 152)
-target = NodePath("../../PlayerHouseWarper")
-exit_direction = 2
-
-[node name="SecondFloorWarper" parent="PalletTown/PlayerHouse1F" node_paths=PackedStringArray("target") instance=ExtResource("3_n833l")]
-position = Vector2(168, 40)
-target = NodePath("../../PlayerHouse2F/SecondFloorWarper")
-exit_direction = 0
-
-[node name="PlayerHouse2F" parent="PalletTown" instance=ExtResource("4_bsp47")]
-position = Vector2(400, 0)
-
-[node name="SecondFloorWarper" parent="PalletTown/PlayerHouse2F" node_paths=PackedStringArray("target") instance=ExtResource("3_n833l")]
-position = Vector2(136, 40)
-target = NodePath("../../PlayerHouse1F/SecondFloorWarper")
-exit_direction = 1
-
-[node name="PlayerHouseWarper" parent="PalletTown" node_paths=PackedStringArray("target") instance=ExtResource("3_n833l")]
-position = Vector2(104, 120)
-target = NodePath("../PlayerHouse1F/PlayerHouseWarper")
-
-[node name="EnvironmentArea" parent="PalletTown" instance=ExtResource("6_bsp47")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PalletTown/EnvironmentArea"]
-position = Vector2(192, 160)
-shape = SubResource("RectangleShape2D_hjlpr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 170)
 
 [node name="DigimonActors" type="Node2D" parent="."]
 script = ExtResource("20_actors")
-
-
