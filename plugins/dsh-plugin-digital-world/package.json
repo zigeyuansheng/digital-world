@@ -1,0 +1,45 @@
+{
+  "name": "dsh-plugin-digital-world",
+  "version": "0.4.0",
+  "private": true,
+  "description": "A persistent 1280×720 pixel Digital World: 1,614 Wikimon entries, random eggs, multiple partners, data absorption, battles, and an original File Island",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib",
+    "data",
+    "tools/build-digimon-data.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "docs",
+    "test"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "test": "node test/run-tests.mjs"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+# Bundle layer for dsh-plugin-digital-world.
+#
+# One Host plugin owns the persistent world state, the `digital_world` agent
+# tool, and the panel HTTP route. Its `dsh.client` declaration ships the browser
+# half: a sidebar entry plus the full Digital World page.
+#
+# `root` defaults to `<DSH profile directory>/digital-world`; point it at another
+# absolute directory to keep the world somewhere else. `tickMs` controls how
+# often the passive world clock advances (minimum 15000).
+- insert:
+    - id: digital-world
+      name: 'dsh-plugin-digital-world'
+      config:
+        root: ''
+        tickMs: 60000

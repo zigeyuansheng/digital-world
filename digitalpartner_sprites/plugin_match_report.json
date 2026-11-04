@@ -1,0 +1,2824 @@
+{
+  "total_ids": 643,
+  "matched": 543,
+  "missing": 100,
+  "matches": [
+    {
+      "id": "Botamon",
+      "plugin_id": "botamon",
+      "sprite": "Sbotamon"
+    },
+    {
+      "id": "Koromon",
+      "plugin_id": "koromon",
+      "sprite": "Skoromon"
+    },
+    {
+      "id": "Gaioumon",
+      "plugin_id": "gaioumon",
+      "sprite": "Sgaioumon"
+    },
+    {
+      "id": "Jewelbeemon",
+      "plugin_id": "jewelbeemon",
+      "sprite": "Sjewelbeemon"
+    },
+    {
+      "id": "Magnagarurumon",
+      "plugin_id": "magna-garurumon",
+      "sprite": "Smagnagarurumon"
+    },
+    {
+      "id": "AncientGarurumon",
+      "plugin_id": "ancient-garurumon",
+      "sprite": "Sancientgarurumon"
+    },
+    {
+      "id": "CresGarurumon",
+      "plugin_id": "cres-garurumon",
+      "sprite": "Scresgarurumon"
+    },
+    {
+      "id": "Zudomon",
+      "plugin_id": "zudomon",
+      "sprite": "Szudomon"
+    },
+    {
+      "id": "Hangyomon",
+      "plugin_id": "hangyomon",
+      "sprite": "Shangyomon"
+    },
+    {
+      "id": "Amphimon",
+      "plugin_id": "amphimon",
+      "sprite": "Samphimon"
+    },
+    {
+      "id": "Vikemon",
+      "plugin_id": "vikemon",
+      "sprite": "Svikemon"
+    },
+    {
+      "id": "Plesiomon",
+      "plugin_id": "plesiomon",
+      "sprite": "Splesiomon"
+    },
+    {
+      "id": "AncientMermaimon",
+      "plugin_id": "ancient-mermaimon",
+      "sprite": "Sancientmermaimon"
+    },
+    {
+      "id": "Kabuterimon",
+      "plugin_id": "kabuterimon",
+      "sprite": "Skabuterimon"
+    },
+    {
+      "id": "Kuwagamon",
+      "plugin_id": "kuwagamon",
+      "sprite": "Skuwagamon"
+    },
+    {
+      "id": "AncientBeatmon",
+      "plugin_id": "ancient-beatmon",
+      "sprite": "Sancientbeatmon"
+    },
+    {
+      "id": "TigerVespamon",
+      "plugin_id": "tiger-vespamon",
+      "sprite": "Stigervespamon"
+    },
+    {
+      "id": "GrandisKuwagamon",
+      "plugin_id": "grandis-kuwagamon",
+      "sprite": "Sgrandiskuwagamon"
+    },
+    {
+      "id": "TyrantKabuterimon",
+      "plugin_id": "tyrant-kabuterimon",
+      "sprite": "Styrantkabuterimon"
+    },
+    {
+      "id": "ShinMonzaemon",
+      "plugin_id": "shin-monzaemon",
+      "sprite": "Sshinmonzaemon"
+    },
+    {
+      "id": "SkullGreymon",
+      "plugin_id": "skull-greymon",
+      "sprite": "Sskullgreymon"
+    },
+    {
+      "id": "BlackWargreymon",
+      "plugin_id": "black-war-greymon",
+      "sprite": "Sblackwargreymon"
+    },
+    {
+      "id": "Blitzgreymon",
+      "plugin_id": "blitz-greymon",
+      "sprite": "Sblitzgreymon"
+    },
+    {
+      "id": "Beowolfmon",
+      "plugin_id": "beowolfmon",
+      "sprite": "Sbeowolfmon"
+    },
+    {
+      "id": "Mercurymon",
+      "plugin_id": "mercurymon",
+      "sprite": "Smercurymon"
+    },
+    {
+      "id": "Omegamon",
+      "plugin_id": "omegamon",
+      "sprite": "Somegamon"
+    },
+    {
+      "id": "OmegamonZwart",
+      "plugin_id": "omegamon-zwart",
+      "sprite": "Somegamonzwart"
+    },
+    {
+      "id": "Ikkakumon",
+      "plugin_id": "ikkakumon",
+      "sprite": "Sikkakumon"
+    },
+    {
+      "id": "Shellmon",
+      "plugin_id": "shellmon",
+      "sprite": "Sshellmon"
+    },
+    {
+      "id": "Blitzmon",
+      "plugin_id": "blitzmon",
+      "sprite": "Sblitzmon"
+    },
+    {
+      "id": "Waspmon",
+      "plugin_id": "waspmon",
+      "sprite": "Swaspmon"
+    },
+    {
+      "id": "BladeKuwagamon",
+      "plugin_id": "blade-kuwagamon",
+      "sprite": "Sbladekuwagamon"
+    },
+    {
+      "id": "Cannonbeemon",
+      "plugin_id": "cannonbeemon",
+      "sprite": "Scannonbeemon"
+    },
+    {
+      "id": "Okuwamon",
+      "plugin_id": "okuwamon",
+      "sprite": "Sokuwamon"
+    },
+    {
+      "id": "Monzaemon",
+      "plugin_id": "monzaemon",
+      "sprite": "Smonzaemon"
+    },
+    {
+      "id": "Pitchmon",
+      "plugin_id": "pitchmon",
+      "sprite": "Spitchmon"
+    },
+    {
+      "id": "Pukamon",
+      "plugin_id": "pukamon",
+      "sprite": "Spukamon"
+    },
+    {
+      "id": "Agumon",
+      "plugin_id": "agumon",
+      "sprite": "Sagumon"
+    },
+    {
+      "id": "MetalGreymon",
+      "plugin_id": "metal-greymon",
+      "sprite": "Smetalgreymon"
+    },
+    {
+      "id": "Wargreymon",
+      "plugin_id": "war-greymon",
+      "sprite": "Swargreymon"
+    },
+    {
+      "id": "DarkTyranomon",
+      "plugin_id": "dark-tyranomon",
+      "sprite": "Sdarktyranomon"
+    },
+    {
+      "id": "Wolfmon",
+      "plugin_id": "wolfmon",
+      "sprite": "Swolfmon"
+    },
+    {
+      "id": "Garurumon",
+      "plugin_id": "garurumon",
+      "sprite": "Sgarurumon"
+    },
+    {
+      "id": "Garurumon(black)",
+      "plugin_id": "garurumon-black",
+      "sprite": "Sgarurumonblack"
+    },
+    {
+      "id": "Dorulumon",
+      "plugin_id": "dorulumon",
+      "sprite": "Sdorulumon"
+    },
+    {
+      "id": "Garummon",
+      "plugin_id": "garummon",
+      "sprite": "Sgarummon"
+    },
+    {
+      "id": "WereGarurumon",
+      "plugin_id": "were-garurumon",
+      "sprite": "Sweregarurumon"
+    },
+    {
+      "id": "MetalGarurumon",
+      "plugin_id": "metal-garurumon",
+      "sprite": "Smetalgarurumon"
+    },
+    {
+      "id": "Agumon(black)",
+      "plugin_id": "agumon-black",
+      "sprite": "Sagumonblack"
+    },
+    {
+      "id": "GranKuwagamon",
+      "plugin_id": "gran-kuwagamon",
+      "sprite": "Sgrankuwagamon"
+    },
+    {
+      "id": "Whamon",
+      "plugin_id": "whamon",
+      "sprite": "Swhamon"
+    },
+    {
+      "id": "Omegamon Alter-S",
+      "plugin_id": "omegamon-alter-s",
+      "sprite": "Salters"
+    },
+    {
+      "id": "Tentomon",
+      "plugin_id": "tentomon",
+      "sprite": "Stentomon"
+    },
+    {
+      "id": "RhinoKabuterimon",
+      "plugin_id": "rhino-kabuterimon",
+      "sprite": "Srhinokabuterimon"
+    },
+    {
+      "id": "MetallifeKuwagamon",
+      "plugin_id": "metallife-kuwagamon",
+      "sprite": "Smetallife"
+    },
+    {
+      "id": "Wisemon",
+      "plugin_id": "wisemon",
+      "sprite": "Swisemon"
+    },
+    {
+      "id": "AncientWisemon",
+      "plugin_id": "ancient-wisemon",
+      "sprite": "Sancientwisemon"
+    },
+    {
+      "id": "Omegamon Alter-B",
+      "plugin_id": "omegamon-alter-b",
+      "sprite": "Salterb"
+    },
+    {
+      "id": "Bubbmon",
+      "plugin_id": "bubbmon",
+      "sprite": "Sbubbmon"
+    },
+    {
+      "id": "Shurimon",
+      "plugin_id": "shurimon",
+      "sprite": "Sshurimon"
+    },
+    {
+      "id": "Coelamon",
+      "plugin_id": "coelamon",
+      "sprite": "Scoelamon"
+    },
+    {
+      "id": "Greymon",
+      "plugin_id": "greymon",
+      "sprite": "Sgreymon"
+    },
+    {
+      "id": "Greymon(Blue)",
+      "plugin_id": "greymon-blue",
+      "sprite": "Sgreymonvirus"
+    },
+    {
+      "id": "Mametyramon",
+      "plugin_id": "mametyramon",
+      "sprite": "Smametyranomon"
+    },
+    {
+      "id": "Gabumon",
+      "plugin_id": "gabumon",
+      "sprite": "Sgabumon"
+    },
+    {
+      "id": "Gabumon(black)",
+      "plugin_id": "gabumon-black",
+      "sprite": "Sgabumonblack"
+    },
+    {
+      "id": "Strabimon",
+      "plugin_id": "strabimon",
+      "sprite": "Sstrabimon"
+    },
+    {
+      "id": "Jellymon",
+      "plugin_id": "jellymon",
+      "sprite": "Sjellymon"
+    },
+    {
+      "id": "Gomamon",
+      "plugin_id": "gomamon",
+      "sprite": "Sgomamon"
+    },
+    {
+      "id": "Sangomon",
+      "plugin_id": "sangomon",
+      "sprite": "Sangomon"
+    },
+    {
+      "id": "TeslaJellymon",
+      "plugin_id": "tesla-jellymon",
+      "sprite": "Steslajellymon"
+    },
+    {
+      "id": "Rukamon",
+      "plugin_id": "rukamon",
+      "sprite": "Srukamon"
+    },
+    {
+      "id": "Thetismon",
+      "plugin_id": "thetismon",
+      "sprite": "Sthetismon"
+    },
+    {
+      "id": "Kokabuterimon",
+      "plugin_id": "kokabuterimon",
+      "sprite": "Skokabuterimon"
+    },
+    {
+      "id": "Funbeemon",
+      "plugin_id": "funbeemon",
+      "sprite": "Sfunbeemon"
+    },
+    {
+      "id": "Mercuremon",
+      "plugin_id": "mercuremon",
+      "sprite": "Smercuremon"
+    },
+    {
+      "id": "Numemon",
+      "plugin_id": "numemon",
+      "sprite": "Snumemon"
+    },
+    {
+      "id": "Punimon",
+      "plugin_id": "punimon",
+      "sprite": "Spunimon"
+    },
+    {
+      "id": "Submarimon",
+      "plugin_id": "submarimon",
+      "sprite": "Ssubmarimon"
+    },
+    {
+      "id": "Kunemon",
+      "plugin_id": "kunemon",
+      "sprite": "Skunemon"
+    },
+    {
+      "id": "MagnaKidmon",
+      "plugin_id": "magna-kidmon",
+      "sprite": "Smagnakidmon"
+    },
+    {
+      "id": "Magnamon",
+      "plugin_id": "magnamon",
+      "sprite": "Smagnamon"
+    },
+    {
+      "id": "Gokimon",
+      "plugin_id": "gokimon",
+      "sprite": "Sgokimon"
+    },
+    {
+      "id": "Kongoumon",
+      "plugin_id": "kongoumon",
+      "sprite": "Skongoumon"
+    },
+    {
+      "id": "Cannondramon",
+      "plugin_id": "cannondramon",
+      "sprite": "Scannondramon"
+    },
+    {
+      "id": "Raptordramon",
+      "plugin_id": "raptordramon",
+      "sprite": "Sraptordramon"
+    },
+    {
+      "id": "Doruguremon",
+      "plugin_id": "doruguremon",
+      "sprite": "Sdoruguremon"
+    },
+    {
+      "id": "Gundramon",
+      "plugin_id": "gundramon",
+      "sprite": "Sgundramon"
+    },
+    {
+      "id": "Alphamon:Ouryuken",
+      "plugin_id": "alphamon-ouryuken",
+      "sprite": "SalphamonO"
+    },
+    {
+      "id": "Chibimon",
+      "plugin_id": "chibimon",
+      "sprite": "Schibimon"
+    },
+    {
+      "id": "Millenniumon",
+      "plugin_id": "millenniumon",
+      "sprite": "Smillenniumon"
+    },
+    {
+      "id": "Rebellimon",
+      "plugin_id": "rebellimon",
+      "sprite": "Srebellimon"
+    },
+    {
+      "id": "Devitamamon",
+      "plugin_id": "devitamamon",
+      "sprite": "Sdevitamamon"
+    },
+    {
+      "id": "Mail Birdramon",
+      "plugin_id": "mail-birdramon",
+      "sprite": "Smailbirdramon"
+    },
+    {
+      "id": "Sagittarimon",
+      "plugin_id": "sagittarimon",
+      "sprite": "Ssagittarimon"
+    },
+    {
+      "id": "Ulforce V-dramon",
+      "plugin_id": "ulforce-v-dramon",
+      "sprite": "Sulforcevdramon"
+    },
+    {
+      "id": "Paildramon",
+      "plugin_id": "paildramon",
+      "sprite": "Spaildramon"
+    },
+    {
+      "id": "Dinobeemon",
+      "plugin_id": "dinobeemon",
+      "sprite": "Sdinobeemon"
+    },
+    {
+      "id": "Dorimon",
+      "plugin_id": "dorimon",
+      "sprite": "Sdorimon"
+    },
+    {
+      "id": "Dorugamon",
+      "plugin_id": "dorugamon",
+      "sprite": "Sdorugamon"
+    },
+    {
+      "id": "Gigadramon",
+      "plugin_id": "gigadramon",
+      "sprite": "Sgigadramon"
+    },
+    {
+      "id": "Dorugoramon",
+      "plugin_id": "dorugoramon",
+      "sprite": "Sdorugoramon"
+    },
+    {
+      "id": "Leafmon",
+      "plugin_id": "leafmon",
+      "sprite": "Sleafmon"
+    },
+    {
+      "id": "Bommon",
+      "plugin_id": "bommon",
+      "sprite": "Sbommon"
+    },
+    {
+      "id": "Missimon",
+      "plugin_id": "missimon",
+      "sprite": "Smissimon"
+    },
+    {
+      "id": "Thunderballmon",
+      "plugin_id": "thunderballmon",
+      "sprite": "Sthunderballmon"
+    },
+    {
+      "id": "Machmon",
+      "plugin_id": "machmon",
+      "sprite": "Smachmon"
+    },
+    {
+      "id": "Deckerdramon",
+      "plugin_id": "deckerdramon",
+      "sprite": "Sdeckerdramon"
+    },
+    {
+      "id": "Raremon",
+      "plugin_id": "raremon",
+      "sprite": "Sraremon"
+    },
+    {
+      "id": "Locomon",
+      "plugin_id": "locomon",
+      "sprite": "Slocomon"
+    },
+    {
+      "id": "Rareraremon",
+      "plugin_id": "rare-raremon",
+      "sprite": "Srareraremon"
+    },
+    {
+      "id": "ZekeGreymon",
+      "plugin_id": "zeke-greymon",
+      "sprite": "Szekegreymon"
+    },
+    {
+      "id": "GrandLocomon",
+      "plugin_id": "grand-locomon",
+      "sprite": "Sgrandlocomon"
+    },
+    {
+      "id": "Raidenmon",
+      "plugin_id": "raidenmon",
+      "sprite": "Sraidenmon"
+    },
+    {
+      "id": "ShoutmonDx",
+      "plugin_id": "shoutmon-dx",
+      "sprite": "Sshoutmondx"
+    },
+    {
+      "id": "BanchoStingmon",
+      "plugin_id": "bancho-stingmon",
+      "sprite": "Sbanchostingmon"
+    },
+    {
+      "id": "Aero V-dramon",
+      "plugin_id": "aero-v-dramon",
+      "sprite": "Saerovdramon"
+    },
+    {
+      "id": "Stingmon",
+      "plugin_id": "stingmon",
+      "sprite": "Sstingmon"
+    },
+    {
+      "id": "Shadramon",
+      "plugin_id": "shadramon",
+      "sprite": "Sshadramon"
+    },
+    {
+      "id": "Hudiemon",
+      "plugin_id": "hudiemon",
+      "sprite": "Shudiemon"
+    },
+    {
+      "id": "Pucchiemon",
+      "plugin_id": "pucchiemon",
+      "sprite": "Spucchiemon"
+    },
+    {
+      "id": "Dodomon",
+      "plugin_id": "dodomon",
+      "sprite": "Sdodomon"
+    },
+    {
+      "id": "Grademon",
+      "plugin_id": "grademon",
+      "sprite": "Sgrademon"
+    },
+    {
+      "id": "Alphamon",
+      "plugin_id": "alphamon",
+      "sprite": "Salphamon"
+    },
+    {
+      "id": "OmegaShoutmon",
+      "plugin_id": "omega-shoutmon",
+      "sprite": "Somegashoutmon"
+    },
+    {
+      "id": "AtlurBallistamon",
+      "plugin_id": "atlur-ballistamon",
+      "sprite": "Satlurballistamon"
+    },
+    {
+      "id": "Mamemon",
+      "plugin_id": "mamemon",
+      "sprite": "Smamemon"
+    },
+    {
+      "id": "Raijinmon",
+      "plugin_id": "raijinmon",
+      "sprite": "Sraijinmon"
+    },
+    {
+      "id": "BanchoMamemon",
+      "plugin_id": "bancho-mamemon",
+      "sprite": "Sbanchomamemon"
+    },
+    {
+      "id": "BigMamemon",
+      "plugin_id": "big-mamemon",
+      "sprite": "Sbigmamemon"
+    },
+    {
+      "id": "ExTyranomon",
+      "plugin_id": "ex-tyranomon",
+      "sprite": "Sextyranomon"
+    },
+    {
+      "id": "V-dramon",
+      "plugin_id": "v-dramon",
+      "sprite": "Sveedramon"
+    },
+    {
+      "id": "Gold V-dramon",
+      "plugin_id": "gold-v-dramon",
+      "sprite": "Sgoldvdramon"
+    },
+    {
+      "id": "Digitamamon",
+      "plugin_id": "digitamamon",
+      "sprite": "Sdigitamamon"
+    },
+    {
+      "id": "Wormmon",
+      "plugin_id": "wormmon",
+      "sprite": "Swormmon"
+    },
+    {
+      "id": "Morphomon",
+      "plugin_id": "morphomon",
+      "sprite": "Smorphomon"
+    },
+    {
+      "id": "Dorumon",
+      "plugin_id": "dorumon",
+      "sprite": "Sdorumon"
+    },
+    {
+      "id": "Chicomon",
+      "plugin_id": "chicomon",
+      "sprite": "Schicomon"
+    },
+    {
+      "id": "Minomon",
+      "plugin_id": "minomon",
+      "sprite": "Sminomon"
+    },
+    {
+      "id": "Shoutmon",
+      "plugin_id": "shoutmon",
+      "sprite": "Sshoutmon"
+    },
+    {
+      "id": "Red V-dramon",
+      "plugin_id": "red-v-dramon",
+      "sprite": "Sredveedramon"
+    },
+    {
+      "id": "ClearAgumon",
+      "plugin_id": "clear-agumon",
+      "sprite": "Sclearagumon"
+    },
+    {
+      "id": "ToyAgumon",
+      "plugin_id": "toy-agumon",
+      "sprite": "Stoyagumon"
+    },
+    {
+      "id": "Kokuwamon",
+      "plugin_id": "kokuwamon",
+      "sprite": "Skokuwamon"
+    },
+    {
+      "id": "Hagurumon",
+      "plugin_id": "hagurumon",
+      "sprite": "Shagurumon"
+    },
+    {
+      "id": "ToyAgumon(Black)",
+      "plugin_id": "toy-agumon-black",
+      "sprite": "Stoyagumonblack"
+    },
+    {
+      "id": "Ballistamon",
+      "plugin_id": "ballistamon",
+      "sprite": "Sballistamon"
+    },
+    {
+      "id": "Giromon",
+      "plugin_id": "giromon",
+      "sprite": "Sgiromon"
+    },
+    {
+      "id": "Lamortmon",
+      "plugin_id": "lamortmon",
+      "sprite": "Slamortmon"
+    },
+    {
+      "id": "Astamon",
+      "plugin_id": "astamon",
+      "sprite": "Sastamon"
+    },
+    {
+      "id": "SaberLeomon",
+      "plugin_id": "saber-leomon",
+      "sprite": "Ssaberleomon"
+    },
+    {
+      "id": "HeavyLeomon",
+      "plugin_id": "heavy-leomon",
+      "sprite": "Sheavyleomon"
+    },
+    {
+      "id": "Zerimon",
+      "plugin_id": "zerimon",
+      "sprite": "Szerimon"
+    },
+    {
+      "id": "Kumbhiramon",
+      "plugin_id": "kumbhiramon",
+      "sprite": "Skumbhiramon"
+    },
+    {
+      "id": "Cherubimon(Virtue)",
+      "plugin_id": "cherubimon-virtue",
+      "sprite": "Scherubimonvirtue"
+    },
+    {
+      "id": "BlackGrowmon",
+      "plugin_id": "black-growmon",
+      "sprite": "Sblackgrowmon"
+    },
+    {
+      "id": "Lavogaritamon",
+      "plugin_id": "lavogaritamon",
+      "sprite": "Slavogaritamon"
+    },
+    {
+      "id": "Dukemon",
+      "plugin_id": "dukemon",
+      "sprite": "Sdukemon"
+    },
+    {
+      "id": "MedievalDukemon",
+      "plugin_id": "medieval-dukemon",
+      "sprite": "Smedidukemon"
+    },
+    {
+      "id": "ChaosDukemon",
+      "plugin_id": "chaos-dukemon",
+      "sprite": "Schaosdukemon"
+    },
+    {
+      "id": "Dukemon(CrimsonMode)",
+      "plugin_id": "dukemon-crimson-mode",
+      "sprite": "Sdukemoncm"
+    },
+    {
+      "id": "Relemon",
+      "plugin_id": "relemon",
+      "sprite": "Srelemon"
+    },
+    {
+      "id": "Dinorexmon",
+      "plugin_id": "dinorexmon",
+      "sprite": "Sdinorexmon"
+    },
+    {
+      "id": "Liamon",
+      "plugin_id": "liamon",
+      "sprite": "Sliamon"
+    },
+    {
+      "id": "Sinduramon",
+      "plugin_id": "sinduramon",
+      "sprite": "Ssinduramon"
+    },
+    {
+      "id": "Mihiramon",
+      "plugin_id": "mihiramon",
+      "sprite": "Smihiramon"
+    },
+    {
+      "id": "Majiramon",
+      "plugin_id": "majiramon",
+      "sprite": "Smajiramon"
+    },
+    {
+      "id": "Xuanwumon",
+      "plugin_id": "xuanwumon",
+      "sprite": "Sxuanwumon"
+    },
+    {
+      "id": "Qinglongmon",
+      "plugin_id": "qinglongmon",
+      "sprite": "Sqinglongmon"
+    },
+    {
+      "id": "AncientVolcamon",
+      "plugin_id": "ancient-volcamon",
+      "sprite": "Sancientvolcamon"
+    },
+    {
+      "id": "Kyubimon",
+      "plugin_id": "kyubimon",
+      "sprite": "Skyubimon"
+    },
+    {
+      "id": "Youkomon",
+      "plugin_id": "youkomon",
+      "sprite": "Syoukomon"
+    },
+    {
+      "id": "MadLeomon",
+      "plugin_id": "mad-leomon",
+      "sprite": "Smadleomon"
+    },
+    {
+      "id": "Taomon",
+      "plugin_id": "taomon",
+      "sprite": "Staomon"
+    },
+    {
+      "id": "Doumon",
+      "plugin_id": "doumon",
+      "sprite": "Sdoumon"
+    },
+    {
+      "id": "Sakuyamon",
+      "plugin_id": "sakuyamon",
+      "sprite": "Ssakuyamon"
+    },
+    {
+      "id": "Kuzuhamon",
+      "plugin_id": "kuzuhamon",
+      "sprite": "Skuzuhamon"
+    },
+    {
+      "id": "Bolgmon",
+      "plugin_id": "bolgmon",
+      "sprite": "Sbolgmon"
+    },
+    {
+      "id": "Harpymon",
+      "plugin_id": "harpymon",
+      "sprite": "Sharpymon"
+    },
+    {
+      "id": "Wendimon",
+      "plugin_id": "wendimon",
+      "sprite": "Swendimon"
+    },
+    {
+      "id": "BlackRapidmon",
+      "plugin_id": "black-rapidmon",
+      "sprite": "Sblackrapidmon"
+    },
+    {
+      "id": "Andiramon(Deva)",
+      "plugin_id": "andiramon-deva",
+      "sprite": "Sandiramondata"
+    },
+    {
+      "id": "Rapidmon(Armor)",
+      "plugin_id": "rapidmon-armor",
+      "sprite": "Srapidmonarmor"
+    },
+    {
+      "id": "Cherubimon(Vice)",
+      "plugin_id": "cherubimon-vice",
+      "sprite": "Scherubimonvice"
+    },
+    {
+      "id": "Growmon",
+      "plugin_id": "growmon",
+      "sprite": "Sgrowmon"
+    },
+    {
+      "id": "Growmon(Orange)",
+      "plugin_id": "growmon-orange",
+      "sprite": "Sorangegrowmon"
+    },
+    {
+      "id": "Lynxmon",
+      "plugin_id": "lynxmon",
+      "sprite": "Slynxmon"
+    },
+    {
+      "id": "MegaloGrowmon",
+      "plugin_id": "megalo-growmon",
+      "sprite": "Smegalogrowmon"
+    },
+    {
+      "id": "MegaloGrowmon(Orange)",
+      "plugin_id": "megalo-growmon-orange",
+      "sprite": "Sorangemegalo"
+    },
+    {
+      "id": "BlackMegaloGrowmon",
+      "plugin_id": "black-megalo-growmon",
+      "sprite": "Sblackmegalo"
+    },
+    {
+      "id": "Volcamon",
+      "plugin_id": "volcamon",
+      "sprite": "Svolcamon"
+    },
+    {
+      "id": "Volcanicdramon",
+      "plugin_id": "volcanicdramon",
+      "sprite": "Svolcanicdramon"
+    },
+    {
+      "id": "Megidramon",
+      "plugin_id": "megidramon",
+      "sprite": "Smegidramon"
+    },
+    {
+      "id": "Vajramon",
+      "plugin_id": "vajramon",
+      "sprite": "Svajramon"
+    },
+    {
+      "id": "Makuramon",
+      "plugin_id": "makuramon",
+      "sprite": "Smakuramon"
+    },
+    {
+      "id": "Sandiramon",
+      "plugin_id": "sandiramon",
+      "sprite": "Ssandiramon"
+    },
+    {
+      "id": "Baihumon",
+      "plugin_id": "baihumon",
+      "sprite": "Sbaihumon"
+    },
+    {
+      "id": "SymbareAngoramon",
+      "plugin_id": "symbare-angoramon",
+      "sprite": "Ssymbareangoramon"
+    },
+    {
+      "id": "Leomon",
+      "plugin_id": "leomon",
+      "sprite": "Sleomon"
+    },
+    {
+      "id": "Gummymon",
+      "plugin_id": "gummymon",
+      "sprite": "Sgummymon"
+    },
+    {
+      "id": "Galgomon",
+      "plugin_id": "galgomon",
+      "sprite": "Sgalgomon"
+    },
+    {
+      "id": "BlackGalgomon",
+      "plugin_id": "black-galgomon",
+      "sprite": "Sblackgalgomon"
+    },
+    {
+      "id": "Turuiemon",
+      "plugin_id": "turuiemon",
+      "sprite": "Sturuiemon"
+    },
+    {
+      "id": "Pajiramon",
+      "plugin_id": "pajiramon",
+      "sprite": "Spajiramon"
+    },
+    {
+      "id": "SaintGalgomon",
+      "plugin_id": "saint-galgomon",
+      "sprite": "Ssaintgalgomon"
+    },
+    {
+      "id": "BlackSaintGalgomon",
+      "plugin_id": "black-saint-galgomon",
+      "sprite": "Sblacksaintgalgamon"
+    },
+    {
+      "id": "Jyarimon",
+      "plugin_id": "jyarimon",
+      "sprite": "Sjyarimon"
+    },
+    {
+      "id": "Gigimon",
+      "plugin_id": "gigimon",
+      "sprite": "Sgigimon"
+    },
+    {
+      "id": "Vikaralamon",
+      "plugin_id": "vikaralamon",
+      "sprite": "Svikaralamon"
+    },
+    {
+      "id": "Indaramon",
+      "plugin_id": "indaramon",
+      "sprite": "Sindaramon"
+    },
+    {
+      "id": "Renamon",
+      "plugin_id": "renamon",
+      "sprite": "Srenamon"
+    },
+    {
+      "id": "Angoramon",
+      "plugin_id": "angoramon",
+      "sprite": "Sangoramon"
+    },
+    {
+      "id": "Diarbbitmon",
+      "plugin_id": "diarbbitmon",
+      "sprite": "Sdiabbirtmon"
+    },
+    {
+      "id": "Terriermon",
+      "plugin_id": "terriermon",
+      "sprite": "Sterriermon"
+    },
+    {
+      "id": "Lopmon",
+      "plugin_id": "lopmon",
+      "sprite": "Slopmon"
+    },
+    {
+      "id": "Andiramon",
+      "plugin_id": "andiramon",
+      "sprite": "Sandiramon"
+    },
+    {
+      "id": "Guilmon",
+      "plugin_id": "guilmon",
+      "sprite": "Sguilmon"
+    },
+    {
+      "id": "BlackGuilmon",
+      "plugin_id": "black-guilmon",
+      "sprite": "Sblackguilmon"
+    },
+    {
+      "id": "Lavorvomon",
+      "plugin_id": "lavorvomon",
+      "sprite": "Slavorvomon"
+    },
+    {
+      "id": "Meramon",
+      "plugin_id": "meramon",
+      "sprite": "Smeramon"
+    },
+    {
+      "id": "DeathMeramon",
+      "plugin_id": "death-meramon",
+      "sprite": "Sdeathmeramon"
+    },
+    {
+      "id": "Liollmon",
+      "plugin_id": "liollmon",
+      "sprite": "Sliollmon"
+    },
+    {
+      "id": "Psychemon",
+      "plugin_id": "psychemon",
+      "sprite": "Spsychemon"
+    },
+    {
+      "id": "Devidramon",
+      "plugin_id": "devidramon",
+      "sprite": "Sdevidramon"
+    },
+    {
+      "id": "Chimairamon",
+      "plugin_id": "chimairamon",
+      "sprite": "Schimairamon"
+    },
+    {
+      "id": "Stiffilmon",
+      "plugin_id": "stiffilmon",
+      "sprite": "Sstiffilmon"
+    },
+    {
+      "id": "SkullBaluchimon",
+      "plugin_id": "skull-baluchimon",
+      "sprite": "Sskullbaluchimon"
+    },
+    {
+      "id": "Rasenmon",
+      "plugin_id": "rasenmon",
+      "sprite": "Srasenmon"
+    },
+    {
+      "id": "Poyomon",
+      "plugin_id": "poyomon",
+      "sprite": "Spoyomon"
+    },
+    {
+      "id": "HolyAngemon",
+      "plugin_id": "holy-angemon",
+      "sprite": "Sholyangemon"
+    },
+    {
+      "id": "Gogmamon",
+      "plugin_id": "gogmamon",
+      "sprite": "Sgogmamon"
+    },
+    {
+      "id": "AncientSphinxmon",
+      "plugin_id": "ancient-sphinxmon",
+      "sprite": "Sancsphinxmon"
+    },
+    {
+      "id": "Arresterdramon",
+      "plugin_id": "arresterdramon",
+      "sprite": "Sarrester"
+    },
+    {
+      "id": "Grottemon",
+      "plugin_id": "grottemon",
+      "sprite": "Sgrottemon"
+    },
+    {
+      "id": "SuperStarmon",
+      "plugin_id": "superstarmon",
+      "sprite": "Ssuperstarmon"
+    },
+    {
+      "id": "DarkSuperStarmon",
+      "plugin_id": "dark-superstarmon",
+      "sprite": "Sdarksuperstarmon"
+    },
+    {
+      "id": "Gigasmon",
+      "plugin_id": "gigasmon",
+      "sprite": "Sgigasmon"
+    },
+    {
+      "id": "Gazimon",
+      "plugin_id": "gazimon",
+      "sprite": "Sgazimon"
+    },
+    {
+      "id": "Baalmon",
+      "plugin_id": "baalmon",
+      "sprite": "Sbaalmon"
+    },
+    {
+      "id": "Deltamon",
+      "plugin_id": "deltamon",
+      "sprite": "Sdeltamon"
+    },
+    {
+      "id": "NeoDevimon",
+      "plugin_id": "neo-devimon",
+      "sprite": "Sneodevimon"
+    },
+    {
+      "id": "Tokomon",
+      "plugin_id": "tokomon",
+      "sprite": "Stokomon"
+    },
+    {
+      "id": "Centalmon",
+      "plugin_id": "centalmon",
+      "sprite": "Scentalmon"
+    },
+    {
+      "id": "Tortamon",
+      "plugin_id": "tortamon",
+      "sprite": "Stortamon"
+    },
+    {
+      "id": "Seraphimon",
+      "plugin_id": "seraphimon",
+      "sprite": "Sseraphimon"
+    },
+    {
+      "id": "Pharaohmon",
+      "plugin_id": "pharaohmon",
+      "sprite": "Spharaohmon"
+    },
+    {
+      "id": "Blastmon",
+      "plugin_id": "blastmon",
+      "sprite": "Sblastmon"
+    },
+    {
+      "id": "Shakkoumon",
+      "plugin_id": "shakkoumon",
+      "sprite": "Sshakkoumon"
+    },
+    {
+      "id": "Deathmon",
+      "plugin_id": "deathmon",
+      "sprite": "Sdeathmon"
+    },
+    {
+      "id": "SkullSatamon",
+      "plugin_id": "skull-satamon",
+      "sprite": "Sskullsatamon"
+    },
+    {
+      "id": "Murmukusmon",
+      "plugin_id": "murmukusmon",
+      "sprite": "Smurmukusmon"
+    },
+    {
+      "id": "Strikedramon",
+      "plugin_id": "strikedramon",
+      "sprite": "Sstrikedramon"
+    },
+    {
+      "id": "Starmon",
+      "plugin_id": "starmon",
+      "sprite": "Sstarmon"
+    },
+    {
+      "id": "Cyberdramon",
+      "plugin_id": "cyberdramon",
+      "sprite": "Scyberdramon"
+    },
+    {
+      "id": "Devimon",
+      "plugin_id": "devimon",
+      "sprite": "Sdevimon"
+    },
+    {
+      "id": "Jokermon",
+      "plugin_id": "jokermon",
+      "sprite": "Sjokermon"
+    },
+    {
+      "id": "Beelzebumon",
+      "plugin_id": "beelzebumon",
+      "sprite": "Sbeelzebumon"
+    },
+    {
+      "id": "Filmon",
+      "plugin_id": "filmon",
+      "sprite": "Sfilmon"
+    },
+    {
+      "id": "Damemon",
+      "plugin_id": "damemon",
+      "sprite": "Sdamemon"
+    },
+    {
+      "id": "hopmon",
+      "plugin_id": "hopmon",
+      "sprite": "Shopmon"
+    },
+    {
+      "id": "Puttimon",
+      "plugin_id": "puttimon",
+      "sprite": "Sputtimon"
+    },
+    {
+      "id": "DoneDevimon",
+      "plugin_id": "done-devimon",
+      "sprite": "Sdonedevimon"
+    },
+    {
+      "id": "Armadimon",
+      "plugin_id": "armadimon",
+      "sprite": "Sarmadimon"
+    },
+    {
+      "id": "Unimon",
+      "plugin_id": "unimon",
+      "sprite": "Sunimon"
+    },
+    {
+      "id": "Golemon",
+      "plugin_id": "golemon",
+      "sprite": "Sgolemon"
+    },
+    {
+      "id": "Mummymon",
+      "plugin_id": "mummymon",
+      "sprite": "Smummymon"
+    },
+    {
+      "id": "Shakamon",
+      "plugin_id": "shakamon",
+      "sprite": "Sshakamon"
+    },
+    {
+      "id": "Digmon",
+      "plugin_id": "digmon",
+      "sprite": "Sdigmon"
+    },
+    {
+      "id": "Cupimon",
+      "plugin_id": "cupimon",
+      "sprite": "Scupimon"
+    },
+    {
+      "id": "Gammamon",
+      "plugin_id": "gammamon",
+      "sprite": "Srealgamma"
+    },
+    {
+      "id": "Gumdramon",
+      "plugin_id": "gumdramon",
+      "sprite": "Sgumdramon"
+    },
+    {
+      "id": "Monodramon",
+      "plugin_id": "monodramon",
+      "sprite": "Smonodramon"
+    },
+    {
+      "id": "Gottsumon",
+      "plugin_id": "gottsumon",
+      "sprite": "Sgotsumon"
+    },
+    {
+      "id": "Arbormon",
+      "plugin_id": "arbormon",
+      "sprite": "Sarbormon"
+    },
+    {
+      "id": "Impmon",
+      "plugin_id": "impmon",
+      "sprite": "Simpmon"
+    },
+    {
+      "id": "Ghostmon",
+      "plugin_id": "ghostmon",
+      "sprite": "Sghostmon"
+    },
+    {
+      "id": "Saberdramon",
+      "plugin_id": "saberdramon",
+      "sprite": "Ssaberdramon"
+    },
+    {
+      "id": "Bakemon",
+      "plugin_id": "bakemon",
+      "sprite": "Sbakemon"
+    },
+    {
+      "id": "Herissmon",
+      "plugin_id": "herissmon",
+      "sprite": "Sherissmon"
+    },
+    {
+      "id": "ketomon",
+      "plugin_id": "ketomon",
+      "sprite": "Sketomon"
+    },
+    {
+      "id": "Patamon",
+      "plugin_id": "patamon",
+      "sprite": "Spatamon"
+    },
+    {
+      "id": "Sunarizamon",
+      "plugin_id": "sunarizamon",
+      "sprite": "Ssunarizamon"
+    },
+    {
+      "id": "Angemon",
+      "plugin_id": "angemon",
+      "sprite": "Sangemon"
+    },
+    {
+      "id": "Ankylomon",
+      "plugin_id": "ankylomon",
+      "sprite": "Sankylomon"
+    },
+    {
+      "id": "Andromon",
+      "plugin_id": "andromon",
+      "sprite": "Sandromon"
+    },
+    {
+      "id": "Jyagamon",
+      "plugin_id": "jyagamon",
+      "sprite": "Sjyagamon"
+    },
+    {
+      "id": "HiAndromon",
+      "plugin_id": "hi-andromon",
+      "sprite": "Shiandromon"
+    },
+    {
+      "id": "Pegasmon",
+      "plugin_id": "pegasmon",
+      "sprite": "Spegasmon"
+    },
+    {
+      "id": "Lucemon",
+      "plugin_id": "lucemon",
+      "sprite": "Slucemon"
+    },
+    {
+      "id": "Ukkomon",
+      "plugin_id": "ukkomon",
+      "sprite": "Sukkomon"
+    },
+    {
+      "id": "BigUkkomon",
+      "plugin_id": "big-ukkomon",
+      "sprite": "Sbigukkomon"
+    },
+    {
+      "id": "Lucemon(Larva)",
+      "plugin_id": "lucemon-larva",
+      "sprite": "Slucemonlarva"
+    },
+    {
+      "id": "Regulusmon",
+      "plugin_id": "regulusmon",
+      "sprite": "Sregulus"
+    },
+    {
+      "id": "Arcturusmon",
+      "plugin_id": "arcturusmon",
+      "sprite": "Sarcturusmon"
+    },
+    {
+      "id": "Archnemon",
+      "plugin_id": "archnemon",
+      "sprite": "Sarchnemon"
+    },
+    {
+      "id": "Aegisdramon",
+      "plugin_id": "aegisdramon",
+      "sprite": "Saegisdramon"
+    },
+    {
+      "id": "Proximamon",
+      "plugin_id": "proximamon",
+      "sprite": "Sproximamon"
+    },
+    {
+      "id": "Triceramon",
+      "plugin_id": "triceramon",
+      "sprite": "Striceramon"
+    },
+    {
+      "id": "Ginryumon",
+      "plugin_id": "ginryumon",
+      "sprite": "Sginryumon"
+    },
+    {
+      "id": "Kinkakumon",
+      "plugin_id": "kinkakumon",
+      "sprite": "Skinkakumon"
+    },
+    {
+      "id": "Asuramon",
+      "plugin_id": "asuramon",
+      "sprite": "Sasuramon"
+    },
+    {
+      "id": "Duramon",
+      "plugin_id": "duramon",
+      "sprite": "Sduramon"
+    },
+    {
+      "id": "Gyukimon",
+      "plugin_id": "gyukimon",
+      "sprite": "Sgyukimon"
+    },
+    {
+      "id": "Ouryumon",
+      "plugin_id": "ouryumon",
+      "sprite": "Souryumon"
+    },
+    {
+      "id": "Zanbamon",
+      "plugin_id": "zanbamon",
+      "sprite": "Szanbamon"
+    },
+    {
+      "id": "Zamielmon",
+      "plugin_id": "zamielmon",
+      "sprite": "Szamielmon"
+    },
+    {
+      "id": "Orochimon",
+      "plugin_id": "orochimon",
+      "sprite": "Sorochimon"
+    },
+    {
+      "id": "Bryweludramon",
+      "plugin_id": "bryweludramon",
+      "sprite": "Sbryweludramon"
+    },
+    {
+      "id": "Darkdramon",
+      "plugin_id": "darkdramon",
+      "sprite": "Sdarkdramon"
+    },
+    {
+      "id": "Brigadramon",
+      "plugin_id": "brigadramon",
+      "sprite": "Sbrigadramon"
+    },
+    {
+      "id": "Ragnalordmon",
+      "plugin_id": "ragna-lordmon",
+      "sprite": "Sragnalordmon"
+    },
+    {
+      "id": "Siesamon",
+      "plugin_id": "siesamon",
+      "sprite": "Ssiesamon"
+    },
+    {
+      "id": "GrandDracumon",
+      "plugin_id": "grand-dracumon",
+      "sprite": "Sgrandracumon"
+    },
+    {
+      "id": "BelialVamdemon",
+      "plugin_id": "belial-vamdemon",
+      "sprite": "Sbelialvamdemon"
+    },
+    {
+      "id": "Caturamon",
+      "plugin_id": "caturamon",
+      "sprite": "Scaturamon"
+    },
+    {
+      "id": "Siriusmon",
+      "plugin_id": "siriusmon",
+      "sprite": "Ssirius"
+    },
+    {
+      "id": "Mugendramon",
+      "plugin_id": "mugendramon",
+      "sprite": "Smugendramon"
+    },
+    {
+      "id": "Jesmon",
+      "plugin_id": "jesmon",
+      "sprite": "Sjesmon"
+    },
+    {
+      "id": "Hisyaryumon",
+      "plugin_id": "hisyaryumon",
+      "sprite": "Shisyaryumon"
+    },
+    {
+      "id": "Oboromon",
+      "plugin_id": "oboromon",
+      "sprite": "Soboromon"
+    },
+    {
+      "id": "Espimon",
+      "plugin_id": "espimon",
+      "sprite": "Sespimon"
+    },
+    {
+      "id": "TiaLudomon",
+      "plugin_id": "tia-ludomon",
+      "sprite": "Stialudomon"
+    },
+    {
+      "id": "Hi-Commandramon",
+      "plugin_id": "hi-commandramon",
+      "sprite": "Shicommandramon"
+    },
+    {
+      "id": "Cargodramon",
+      "plugin_id": "cargodramon",
+      "sprite": "Scargodramon"
+    },
+    {
+      "id": "Tankdramon",
+      "plugin_id": "tankdramon",
+      "sprite": "Stankdramon"
+    },
+    {
+      "id": "Nidhoggmon",
+      "plugin_id": "nidhoggmon",
+      "sprite": "Snidhoggmon"
+    },
+    {
+      "id": "Curimon",
+      "plugin_id": "curimon",
+      "sprite": "Scurimon"
+    },
+    {
+      "id": "Gurimon",
+      "plugin_id": "gurimon",
+      "sprite": "Sgurimon"
+    },
+    {
+      "id": "Sakumon",
+      "plugin_id": "sakumon",
+      "sprite": "Ssakumon"
+    },
+    {
+      "id": "Matadrmon",
+      "plugin_id": "matadrmon",
+      "sprite": "Smatadrmon"
+    },
+    {
+      "id": "Piccolomon",
+      "plugin_id": "piccolomon",
+      "sprite": "Spiccolomon"
+    },
+    {
+      "id": "Betelgammamon",
+      "plugin_id": "betel-gammamon",
+      "sprite": "Sbetel"
+    },
+    {
+      "id": "Gulusgammamon",
+      "plugin_id": "gulus-gammamon",
+      "sprite": "Sgulus"
+    },
+    {
+      "id": "Kausgammamon",
+      "plugin_id": "kaus-gammamon",
+      "sprite": "Skaus"
+    },
+    {
+      "id": "Wezengammamon",
+      "plugin_id": "wezen-gammamon",
+      "sprite": "Swezen"
+    },
+    {
+      "id": "Dobermon",
+      "plugin_id": "dobermon",
+      "sprite": "Sdobermon"
+    },
+    {
+      "id": "Vamdemon",
+      "plugin_id": "vamdemon",
+      "sprite": "Svamdemon"
+    },
+    {
+      "id": "NeoVamdemon",
+      "plugin_id": "neo-vamdemon",
+      "sprite": "Sneovamdemon"
+    },
+    {
+      "id": "ZubaEagermon",
+      "plugin_id": "zubaeagermon",
+      "sprite": "Szubaeagermon"
+    },
+    {
+      "id": "Durandamon",
+      "plugin_id": "durandamon",
+      "sprite": "Sdurandamon"
+    },
+    {
+      "id": "HoverEspimon",
+      "plugin_id": "hover-espimon",
+      "sprite": "Shoverespimon"
+    },
+    {
+      "id": "RaijiLudomon",
+      "plugin_id": "raiji-ludomon",
+      "sprite": "Sraijiludomon"
+    },
+    {
+      "id": "Fumamon",
+      "plugin_id": "fumamon",
+      "sprite": "Sfumamon"
+    },
+    {
+      "id": "AncientTroiamon",
+      "plugin_id": "ancient-troiamon",
+      "sprite": "Sancienttroiamon"
+    },
+    {
+      "id": "Monochromon",
+      "plugin_id": "monochromon",
+      "sprite": "Smonochromon"
+    },
+    {
+      "id": "Sangloupmon",
+      "plugin_id": "sangloupmon",
+      "sprite": "Ssangloupmon"
+    },
+    {
+      "id": "Plutomon",
+      "plugin_id": "plutomon",
+      "sprite": "Splutomon"
+    },
+    {
+      "id": "Cerberumon",
+      "plugin_id": "cerberumon",
+      "sprite": "Scerberumon"
+    },
+    {
+      "id": "MetalMamemon",
+      "plugin_id": "metal-mamemon",
+      "sprite": "Smetalmamemon"
+    },
+    {
+      "id": "Ryudamon",
+      "plugin_id": "ryudamon",
+      "sprite": "Sryudamon"
+    },
+    {
+      "id": "Zubamon",
+      "plugin_id": "zubamon",
+      "sprite": "Szubamon"
+    },
+    {
+      "id": "Musyamon",
+      "plugin_id": "musyamon",
+      "sprite": "Smusyamon"
+    },
+    {
+      "id": "Dokugumon",
+      "plugin_id": "dokugumon",
+      "sprite": "Sdokugumon"
+    },
+    {
+      "id": "Parasimon",
+      "plugin_id": "parasimon",
+      "sprite": "Sparasimon"
+    },
+    {
+      "id": "Cotsucomon",
+      "plugin_id": "cotsucomon",
+      "sprite": "Scotsucomon"
+    },
+    {
+      "id": "Kakkinmon",
+      "plugin_id": "kakkinmon",
+      "sprite": "Skakkinmon"
+    },
+    {
+      "id": "Ludomon",
+      "plugin_id": "ludomon",
+      "sprite": "Sludomon"
+    },
+    {
+      "id": "Commandramon",
+      "plugin_id": "commandramon",
+      "sprite": "Scommandramon"
+    },
+    {
+      "id": "Sealsdramon",
+      "plugin_id": "sealsdramon",
+      "sprite": "Ssealsdramon"
+    },
+    {
+      "id": "Sakuttomon",
+      "plugin_id": "sakuttomon",
+      "sprite": "Ssakuttomon"
+    },
+    {
+      "id": "Dracumon",
+      "plugin_id": "dracumon",
+      "sprite": "Sdracumon"
+    },
+    {
+      "id": "Reppamon",
+      "plugin_id": "reppamon",
+      "sprite": "Sreppamon"
+    },
+    {
+      "id": "Vademon",
+      "plugin_id": "vademon",
+      "sprite": "Svademon"
+    },
+    {
+      "id": "Ajatarmon",
+      "plugin_id": "ajatarmon",
+      "sprite": "Sajatarmon"
+    },
+    {
+      "id": "Toropiamon",
+      "plugin_id": "toropiamon",
+      "sprite": "Storopiamon"
+    },
+    {
+      "id": "Blossomon",
+      "plugin_id": "blossomon",
+      "sprite": "Sblossomon"
+    },
+    {
+      "id": "Bloomlordmon",
+      "plugin_id": "bloom-lordmon",
+      "sprite": "Sbloomlordmon"
+    },
+    {
+      "id": "Hydramon",
+      "plugin_id": "hydramon",
+      "sprite": "Shydramon"
+    },
+    {
+      "id": "JetSilphymon",
+      "plugin_id": "jet-silphymon",
+      "sprite": "Sjetsilphymon"
+    },
+    {
+      "id": "Thunderbirmon",
+      "plugin_id": "thunderbirmon",
+      "sprite": "Sthunderbirmon"
+    },
+    {
+      "id": "Xiquemon",
+      "plugin_id": "xiquemon",
+      "sprite": "Sxiquemon"
+    },
+    {
+      "id": "Yatagaramon",
+      "plugin_id": "yatagaramon",
+      "sprite": "Syatagaramon2006"
+    },
+    {
+      "id": "Peacockmon",
+      "plugin_id": "peacockmon",
+      "sprite": "Speacockmon"
+    },
+    {
+      "id": "Metallicdramon",
+      "plugin_id": "metallicdramon",
+      "sprite": "Smetallicdramon"
+    },
+    {
+      "id": "Xiangpengmon",
+      "plugin_id": "xiangpengmon",
+      "sprite": "Sxiangpengmon"
+    },
+    {
+      "id": "HippoGriffomon",
+      "plugin_id": "hippogriffomon",
+      "sprite": "Shippogriffomon"
+    },
+    {
+      "id": "Griffomon",
+      "plugin_id": "griffomon",
+      "sprite": "Sgriffomon"
+    },
+    {
+      "id": "YukimiBotamon",
+      "plugin_id": "yukimi-botamon",
+      "sprite": "Syukimibotamon"
+    },
+    {
+      "id": "Nyaromon",
+      "plugin_id": "nyaromon",
+      "sprite": "Snyaromon"
+    },
+    {
+      "id": "Dominimon",
+      "plugin_id": "dominimon",
+      "sprite": "Sdominimon"
+    },
+    {
+      "id": "Mammon",
+      "plugin_id": "mammon",
+      "sprite": "Smammon"
+    },
+    {
+      "id": "Blizzarmon",
+      "plugin_id": "blizzarmon",
+      "sprite": "Sblizzarmon"
+    },
+    {
+      "id": "Palmon",
+      "plugin_id": "palmon",
+      "sprite": "Spalmon"
+    },
+    {
+      "id": "Rafflesimon",
+      "plugin_id": "rafflesimon",
+      "sprite": "Srafflesimon"
+    },
+    {
+      "id": "Shutumon",
+      "plugin_id": "shutumon",
+      "sprite": "Sshutumon"
+    },
+    {
+      "id": "Jazarichmon",
+      "plugin_id": "jazarichmon",
+      "sprite": "Sjazarichmon"
+    },
+    {
+      "id": "Garudamon",
+      "plugin_id": "garudamon",
+      "sprite": "Sgarudamon"
+    },
+    {
+      "id": "Huankunmon",
+      "plugin_id": "huankunmon",
+      "sprite": "Shuankunmon"
+    },
+    {
+      "id": "Hououmon",
+      "plugin_id": "hououmon",
+      "sprite": "Shououmon"
+    },
+    {
+      "id": "Lotusmon",
+      "plugin_id": "lotusmon",
+      "sprite": "Slotusmon"
+    },
+    {
+      "id": "Yuramon",
+      "plugin_id": "yuramon",
+      "sprite": "Syuramon"
+    },
+    {
+      "id": "Luxmon",
+      "plugin_id": "luxmon",
+      "sprite": "Sluxmon"
+    },
+    {
+      "id": "ArkhaiAngemon",
+      "plugin_id": "arkhai-angemon",
+      "sprite": "Sarkhaiangemon"
+    },
+    {
+      "id": "Angewomon",
+      "plugin_id": "angewomon",
+      "sprite": "Sangewomon"
+    },
+    {
+      "id": "Holydramon",
+      "plugin_id": "holydramon",
+      "sprite": "Sholydramon"
+    },
+    {
+      "id": "Hiyarimon",
+      "plugin_id": "hiyarimon",
+      "sprite": "Shiyarimon"
+    },
+    {
+      "id": "Moosemon",
+      "plugin_id": "moosemon",
+      "sprite": "Smoosemon"
+    },
+    {
+      "id": "Hyougamon",
+      "plugin_id": "hyougamon",
+      "sprite": "Shyougamon"
+    },
+    {
+      "id": "Cryspaledramon",
+      "plugin_id": "crys-paledramon",
+      "sprite": "Scryspaledramon"
+    },
+    {
+      "id": "SkullMammon",
+      "plugin_id": "skull-mammon",
+      "sprite": "Sskullmammon"
+    },
+    {
+      "id": "FrosVelgrmon",
+      "plugin_id": "fros-velgrmon",
+      "sprite": "Sfrosvelgrmon"
+    },
+    {
+      "id": "AncientMegatheriumon",
+      "plugin_id": "ancient-megatheriumon",
+      "sprite": "Sancimegatheri"
+    },
+    {
+      "id": "Olegmon",
+      "plugin_id": "olegmon",
+      "sprite": "Solegmon"
+    },
+    {
+      "id": "Venusmon",
+      "plugin_id": "venusmon",
+      "sprite": "Svenusmon"
+    },
+    {
+      "id": "Togemon",
+      "plugin_id": "togemon",
+      "sprite": "Stogemon"
+    },
+    {
+      "id": "Sunflowmon",
+      "plugin_id": "sunflowmon",
+      "sprite": "Ssunflowmon"
+    },
+    {
+      "id": "Parasaurmon",
+      "plugin_id": "parasaurmon",
+      "sprite": "Sparasaurmon"
+    },
+    {
+      "id": "Snimon",
+      "plugin_id": "snimon",
+      "sprite": "Ssnimon"
+    },
+    {
+      "id": "Lilimon",
+      "plugin_id": "lilimon",
+      "sprite": "Slilimon"
+    },
+    {
+      "id": "AncientIrismon",
+      "plugin_id": "ancient-irismon",
+      "sprite": "Sancientirismon"
+    },
+    {
+      "id": "LordKnightmon",
+      "plugin_id": "lord-knightmon",
+      "sprite": "Slordknightmon"
+    },
+    {
+      "id": "Lalamon",
+      "plugin_id": "lalamon",
+      "sprite": "Slalamon"
+    },
+    {
+      "id": "BanchoLilimon",
+      "plugin_id": "bancho-lilimon",
+      "sprite": "Sbancholilimon"
+    },
+    {
+      "id": "Birdramon",
+      "plugin_id": "birdramon",
+      "sprite": "Sbirdramon"
+    },
+    {
+      "id": "Ravmon",
+      "plugin_id": "ravmon",
+      "sprite": "Sravmon"
+    },
+    {
+      "id": "Tanemon",
+      "plugin_id": "tanemon",
+      "sprite": "Stanemon"
+    },
+    {
+      "id": "Nyokimon",
+      "plugin_id": "nyokimon",
+      "sprite": "Snyokimon"
+    },
+    {
+      "id": "Pyocomon",
+      "plugin_id": "pyocomon",
+      "sprite": "Spyocomon"
+    },
+    {
+      "id": "Aquilamon",
+      "plugin_id": "aquilamon",
+      "sprite": "Saquilamon"
+    },
+    {
+      "id": "Holsmon",
+      "plugin_id": "holsmon",
+      "sprite": "Sholsmon"
+    },
+    {
+      "id": "Pidmon",
+      "plugin_id": "pidmon",
+      "sprite": "Spidmon"
+    },
+    {
+      "id": "Valkyrimon",
+      "plugin_id": "valkyrimon",
+      "sprite": "Svalkyrimon"
+    },
+    {
+      "id": "Nefertimon",
+      "plugin_id": "nefertimon",
+      "sprite": "Snefertimon"
+    },
+    {
+      "id": "Paledramon",
+      "plugin_id": "paledramon",
+      "sprite": "Spaledramon"
+    },
+    {
+      "id": "Yukidarumon",
+      "plugin_id": "yukidarumon",
+      "sprite": "Syukidarumon"
+    },
+    {
+      "id": "Mojyamon",
+      "plugin_id": "mojyamon",
+      "sprite": "Smojyamon"
+    },
+    {
+      "id": "IceDevimon",
+      "plugin_id": "ice-devimon",
+      "sprite": "Sicedevimon"
+    },
+    {
+      "id": "Sirenmon",
+      "plugin_id": "sirenmon",
+      "sprite": "Ssirenmon"
+    },
+    {
+      "id": "Panjyamon",
+      "plugin_id": "panjyamon",
+      "sprite": "Spanjyamon"
+    },
+    {
+      "id": "Frozomon",
+      "plugin_id": "frozomon",
+      "sprite": "Sfrozomon"
+    },
+    {
+      "id": "Daipenmon",
+      "plugin_id": "daipenmon",
+      "sprite": "Sdaipenmon"
+    },
+    {
+      "id": "Dinotigermon",
+      "plugin_id": "dinotigermon",
+      "sprite": "Sdinotigermon"
+    },
+    {
+      "id": "Tinkermon",
+      "plugin_id": "tinkermon",
+      "sprite": "Stinkermon"
+    },
+    {
+      "id": "Pomumon",
+      "plugin_id": "pomumon",
+      "sprite": "Spomumon"
+    },
+    {
+      "id": "Fairimon",
+      "plugin_id": "fairimon",
+      "sprite": "Sfairimon"
+    },
+    {
+      "id": "Lilamon",
+      "plugin_id": "lilamon",
+      "sprite": "Slilamon"
+    },
+    {
+      "id": "Rosemon",
+      "plugin_id": "rosemon",
+      "sprite": "Srosemon"
+    },
+    {
+      "id": "Jazamon",
+      "plugin_id": "jazamon",
+      "sprite": "Sjazamon"
+    },
+    {
+      "id": "Falcomon",
+      "plugin_id": "falcomon",
+      "sprite": "Sfalcomon2006"
+    },
+    {
+      "id": "Piyomon",
+      "plugin_id": "piyomon",
+      "sprite": "Spiyomon"
+    },
+    {
+      "id": "Peckmon",
+      "plugin_id": "peckmon",
+      "sprite": "Speckmon"
+    },
+    {
+      "id": "Cockatrimon",
+      "plugin_id": "cockatrimon",
+      "sprite": "Scockatrimon"
+    },
+    {
+      "id": "Hawkmon",
+      "plugin_id": "hawkmon",
+      "sprite": "Shawkmon"
+    },
+    {
+      "id": "Plotmon",
+      "plugin_id": "plotmon",
+      "sprite": "Splotmon"
+    },
+    {
+      "id": "Tailmon",
+      "plugin_id": "tailmon",
+      "sprite": "Stailmon"
+    },
+    {
+      "id": "BlackTailmon",
+      "plugin_id": "black-tailmon",
+      "sprite": "Sblacktailmon"
+    },
+    {
+      "id": "Silphymon",
+      "plugin_id": "silphymon",
+      "sprite": "Ssilphymon"
+    },
+    {
+      "id": "Blucomon",
+      "plugin_id": "blucomon",
+      "sprite": "Sblucomon"
+    },
+    {
+      "id": "YukiAgumon",
+      "plugin_id": "yuki-agumon",
+      "sprite": "Syukiagumon"
+    },
+    {
+      "id": "Chackmon",
+      "plugin_id": "chackmon",
+      "sprite": "Schackmon"
+    },
+    {
+      "id": "Aldamon",
+      "plugin_id": "aldamon",
+      "sprite": "Saldamon"
+    },
+    {
+      "id": "Wingdramon",
+      "plugin_id": "wingdramon",
+      "sprite": "Swingdramon"
+    },
+    {
+      "id": "Groundramon",
+      "plugin_id": "groundramon",
+      "sprite": "Sgroundramon"
+    },
+    {
+      "id": "Breakdramon",
+      "plugin_id": "breakdramon",
+      "sprite": "Sbreakdramon"
+    },
+    {
+      "id": "Examon",
+      "plugin_id": "examon",
+      "sprite": "Sexamon"
+    },
+    {
+      "id": "Flaremon",
+      "plugin_id": "flaremon",
+      "sprite": "Sflaremon"
+    },
+    {
+      "id": "Soloogarmon",
+      "plugin_id": "soloogarmon",
+      "sprite": "Ssoloogarmon"
+    },
+    {
+      "id": "Destromon",
+      "plugin_id": "destromon",
+      "sprite": "Sdestromon"
+    },
+    {
+      "id": "Ragnamon",
+      "plugin_id": "ragnamon",
+      "sprite": "Sragnamon"
+    },
+    {
+      "id": "Petitmon",
+      "plugin_id": "petitmon",
+      "sprite": "Spetitmon"
+    },
+    {
+      "id": "MegaSeadramon",
+      "plugin_id": "mega-seadramon",
+      "sprite": "Smegaseadramon"
+    },
+    {
+      "id": "WaruSeadramon",
+      "plugin_id": "waru-seadramon",
+      "sprite": "Swaruseadramon"
+    },
+    {
+      "id": "MarinDevimon",
+      "plugin_id": "marin-devimon",
+      "sprite": "Smarindevimon"
+    },
+    {
+      "id": "Spinomon",
+      "plugin_id": "spinomon",
+      "sprite": "Sspinomon"
+    },
+    {
+      "id": "GigaSeadramon",
+      "plugin_id": "giga-seadramon",
+      "sprite": "Sgigaseadramon"
+    },
+    {
+      "id": "Regalecusmon",
+      "plugin_id": "regalecusmon",
+      "sprite": "Sregalecusmon"
+    },
+    {
+      "id": "Kazuchimon",
+      "plugin_id": "kazuchimon",
+      "sprite": "Skazuchimon"
+    },
+    {
+      "id": "Shroudmon",
+      "plugin_id": "shroudmon",
+      "sprite": "Sshroudmon"
+    },
+    {
+      "id": "Fenriloogamon:Takemikazuchi",
+      "plugin_id": "fenriloogamon-takemikazuchi",
+      "sprite": "Sfenritakemikazuchi"
+    },
+    {
+      "id": "Vritramon",
+      "plugin_id": "vritramon",
+      "sprite": "Svritramon"
+    },
+    {
+      "id": "RizeGreymon",
+      "plugin_id": "rize-greymon",
+      "sprite": "Srizegreymon"
+    },
+    {
+      "id": "KaiserGreymon",
+      "plugin_id": "kaiser-greymon",
+      "sprite": "Skaisergreymon"
+    },
+    {
+      "id": "AncientGreymon",
+      "plugin_id": "ancient-greymon",
+      "sprite": "Sancientgreymon"
+    },
+    {
+      "id": "ShineGreymon",
+      "plugin_id": "shine-greymon",
+      "sprite": "Sshinegreymon"
+    },
+    {
+      "id": "Slayerdramon",
+      "plugin_id": "slayerdramon",
+      "sprite": "Sslayerdramon"
+    },
+    {
+      "id": "Susanoomon",
+      "plugin_id": "susanoomon",
+      "sprite": "Ssusanoomon"
+    },
+    {
+      "id": "Snatchmon",
+      "plugin_id": "snatchmon",
+      "sprite": "Ssnatchmon"
+    },
+    {
+      "id": "Crescemon",
+      "plugin_id": "crescemon",
+      "sprite": "Screscemon"
+    },
+    {
+      "id": "Apollomon",
+      "plugin_id": "apollomon",
+      "sprite": "Sapollomon"
+    },
+    {
+      "id": "MirageGaogamon",
+      "plugin_id": "mirage-gaogamon",
+      "sprite": "Smiragegaogamon"
+    },
+    {
+      "id": "Fenriloogamon",
+      "plugin_id": "fenriloogamon",
+      "sprite": "Sfenriloogamon"
+    },
+    {
+      "id": "GraceNovamon",
+      "plugin_id": "grace-novamon",
+      "sprite": "Sgracenovamon"
+    },
+    {
+      "id": "Bearmon",
+      "plugin_id": "bearmon",
+      "sprite": "Sbearmon"
+    },
+    {
+      "id": "Marsmon",
+      "plugin_id": "marsmon",
+      "sprite": "Smarsmon"
+    },
+    {
+      "id": "Chapmon",
+      "plugin_id": "chapmon",
+      "sprite": "Schapmon"
+    },
+    {
+      "id": "Airdramon",
+      "plugin_id": "airdramon",
+      "sprite": "Sairdramon"
+    },
+    {
+      "id": "Ebidramon",
+      "plugin_id": "ebidramon",
+      "sprite": "Sebidramon"
+    },
+    {
+      "id": "Megadramon",
+      "plugin_id": "megadramon",
+      "sprite": "Smegadramon"
+    },
+    {
+      "id": "Dagomon",
+      "plugin_id": "dagomon",
+      "sprite": "Sdagomon"
+    },
+    {
+      "id": "MetalSeadramon",
+      "plugin_id": "metal-seadramon",
+      "sprite": "Smetalseadramon"
+    },
+    {
+      "id": "Neptunemon",
+      "plugin_id": "neptunemon",
+      "sprite": "Sneptunemon"
+    },
+    {
+      "id": "Pukumon",
+      "plugin_id": "pukumon",
+      "sprite": "Spukumon"
+    },
+    {
+      "id": "Dokimon",
+      "plugin_id": "dokimon",
+      "sprite": "Sdokimon"
+    },
+    {
+      "id": "Tyumon",
+      "plugin_id": "tyumon",
+      "sprite": "Styumon"
+    },
+    {
+      "id": "Bulkmon",
+      "plugin_id": "bulkmon",
+      "sprite": "Sbulkmon"
+    },
+    {
+      "id": "Boutmon",
+      "plugin_id": "boutmon",
+      "sprite": "Sboutmon"
+    },
+    {
+      "id": "Pistmon",
+      "plugin_id": "pistmon",
+      "sprite": "Spistmon"
+    },
+    {
+      "id": "Shivamon",
+      "plugin_id": "shivamon",
+      "sprite": "Sshivamon"
+    },
+    {
+      "id": "Agnimon",
+      "plugin_id": "agnimon",
+      "sprite": "Sagnimon"
+    },
+    {
+      "id": "Geogreymon",
+      "plugin_id": "geo-greymon",
+      "sprite": "Sgeogreymon"
+    },
+    {
+      "id": "Coredramon(blue)",
+      "plugin_id": "coredramon-blue",
+      "sprite": "Scoredramonblue"
+    },
+    {
+      "id": "Coredramon(green)",
+      "plugin_id": "coredramon-green",
+      "sprite": "Scoredramongreen"
+    },
+    {
+      "id": "Firamon",
+      "plugin_id": "firamon",
+      "sprite": "Sfiramon"
+    },
+    {
+      "id": "Gaogamon",
+      "plugin_id": "gaogamon",
+      "sprite": "Sgaogamon"
+    },
+    {
+      "id": "Loogarmon",
+      "plugin_id": "loogarmon",
+      "sprite": "Sloogarmon"
+    },
+    {
+      "id": "MachGaogamon",
+      "plugin_id": "mach-gaogamon",
+      "sprite": "Smachgaogamon"
+    },
+    {
+      "id": "Dianamon",
+      "plugin_id": "dianamon",
+      "sprite": "Sdianamon"
+    },
+    {
+      "id": "Babydmon",
+      "plugin_id": "babydmon",
+      "sprite": "Sbabydmon"
+    },
+    {
+      "id": "Fusamon",
+      "plugin_id": "fusamon",
+      "sprite": "Sfusamon"
+    },
+    {
+      "id": "Bowmon",
+      "plugin_id": "bowmon",
+      "sprite": "Sbowmon"
+    },
+    {
+      "id": "Pipimon",
+      "plugin_id": "pipimon",
+      "sprite": "Spipimon"
+    },
+    {
+      "id": "Betamon",
+      "plugin_id": "betamon",
+      "sprite": "Sbetamon"
+    },
+    {
+      "id": "Seadramon",
+      "plugin_id": "seadramon",
+      "sprite": "Sseadramon"
+    },
+    {
+      "id": "Tobiumon",
+      "plugin_id": "tobiumon",
+      "sprite": "Stobiumon"
+    },
+    {
+      "id": "Gesomon",
+      "plugin_id": "gesomon",
+      "sprite": "Sgesomon"
+    },
+    {
+      "id": "Gusokumon",
+      "plugin_id": "gusokumon",
+      "sprite": "Sgusokumon"
+    },
+    {
+      "id": "Anomalocarimon",
+      "plugin_id": "anomalocarimon",
+      "sprite": "Sanomalocarimon"
+    },
+    {
+      "id": "Scumon",
+      "plugin_id": "scumon",
+      "sprite": "Sscumon"
+    },
+    {
+      "id": "Etemon",
+      "plugin_id": "etemon",
+      "sprite": "Setemon"
+    },
+    {
+      "id": "MetalEtemon",
+      "plugin_id": "metal-etemon",
+      "sprite": "Smetaletemon"
+    },
+    {
+      "id": "Flamon",
+      "plugin_id": "flamon",
+      "sprite": "Sflamon"
+    },
+    {
+      "id": "Dracomon",
+      "plugin_id": "dracomon",
+      "sprite": "Sdracomon"
+    },
+    {
+      "id": "Coronamon",
+      "plugin_id": "coronamon",
+      "sprite": "Scoronamon"
+    },
+    {
+      "id": "Lunamon",
+      "plugin_id": "lunamon",
+      "sprite": "Slunamon"
+    },
+    {
+      "id": "Gaomon",
+      "plugin_id": "gaomon",
+      "sprite": "Sgaomon"
+    },
+    {
+      "id": "Loogamon",
+      "plugin_id": "loogamon",
+      "sprite": "Sloogamon"
+    },
+    {
+      "id": "Bemmon",
+      "plugin_id": "bemmon",
+      "sprite": "Sbemmon"
+    },
+    {
+      "id": "Lekismon",
+      "plugin_id": "lekismon",
+      "sprite": "Slekismon"
+    },
+    {
+      "id": "Gryzmon",
+      "plugin_id": "gryzmon",
+      "sprite": "Sgryzmon"
+    },
+    {
+      "id": "Gizamon",
+      "plugin_id": "gizamon",
+      "sprite": "Sgizamon"
+    },
+    {
+      "id": "Manbomon",
+      "plugin_id": "manbomon",
+      "sprite": "Smanbomon"
+    },
+    {
+      "id": "Bibimon",
+      "plugin_id": "bibimon",
+      "sprite": "Sbibimon"
+    },
+    {
+      "id": "Pulsemon",
+      "plugin_id": "pulsemon",
+      "sprite": "Spulsemon"
+    },
+    {
+      "id": "Koemon",
+      "plugin_id": "koemon",
+      "sprite": "Skoemon"
+    },
+    {
+      "id": "Exermon",
+      "plugin_id": "exermon",
+      "sprite": "Sexermon"
+    },
+    {
+      "id": "Runnermon",
+      "plugin_id": "runnermon",
+      "sprite": "Srunnermon"
+    },
+    {
+      "id": "Namakemon",
+      "plugin_id": "namakemon",
+      "sprite": "Snamakemon"
+    },
+    {
+      "id": "Divemon",
+      "plugin_id": "divemon",
+      "sprite": "Sdivemon"
+    },
+    {
+      "id": "Shootmon",
+      "plugin_id": "shootmon",
+      "sprite": "Sshootmon"
+    },
+    {
+      "id": "Climbmon",
+      "plugin_id": "climbmon",
+      "sprite": "Sclimbmon"
+    },
+    {
+      "id": "Achillesmon",
+      "plugin_id": "achillesmon",
+      "sprite": "Sachillesmon"
+    },
+    {
+      "id": "KingEtemon",
+      "plugin_id": "king-etemon",
+      "sprite": "Skingetemon"
+    },
+    {
+      "id": "Chaosdramon",
+      "plugin_id": "chaosdramon",
+      "sprite": "Schaosdramon"
+    }
+  ],
+  "missing_names": [
+    "RustTyrannomon",
+    "Octomon",
+    "AtlurKabuterimon",
+    "HerculesKabuterimon",
+    "Weregarurumon:SM",
+    "MasterTyrannomon",
+    "JaegarDorulumon",
+    "MarinKimeramon",
+    "Monzaemon X",
+    "MetalGreymon:AM",
+    "MetalGreymon(v)",
+    "Tyrannomon",
+    "MetalGarurumon(B)",
+    "Cythllamon",
+    "Tsunomon",
+    "Motimon",
+    "Omegamon X",
+    "MarineAngemon",
+    "Imperialdramon(FM)",
+    "Imperialdramon(PM)",
+    "MetalGreymonX(virus)",
+    "DexDouruguremon",
+    "MetalGreymon(2010)",
+    "Veemon",
+    "Greymon X(Virus)",
+    "DexDorugamon",
+    "BlackWargreymon X",
+    "DexDorugoramon",
+    "ExVeemon",
+    "Raidramon",
+    "Pucchiemon(G)",
+    "Imperialdramon(DM)",
+    "Eosmon",
+    "Ogremon",
+    "Flamedramon",
+    "BlackAgumon X",
+    "Sakuyamon X",
+    "Belphemon",
+    "Dukemon X",
+    "LoaderLiomon",
+    "GrapLeomon",
+    "Rapidmon",
+    "SakuyamonMiko",
+    "KuzuhamonMiko",
+    "Viximon",
+    "Terriermon X",
+    "Lopmon X",
+    "Renamon X",
+    "Paschomon",
+    "Vorvormon",
+    "ArresterdramonSM",
+    "Beelzebumon(2010)",
+    "Piedmon",
+    "Beelzebumon(BM)",
+    "Lucemon(FM)",
+    "MetalGreymon X",
+    "Anomalocarimon X",
+    "Beelzebumon X",
+    "Wargreymon X",
+    "Rasenmon(Fury)",
+    "Baalmon X",
+    "Kiimon",
+    "Dyanasmon",
+    "Justimon(Crit)",
+    "Justimon(Accel)",
+    "Agumon X",
+    "Yaamon",
+    "Tokomon X",
+    "Lucemon(Satan)",
+    "Justimon(Blitz)",
+    "Wizardmon",
+    "Cyberdramon(2010)",
+    "Phantomon",
+    "NoblePumpkinmon",
+    "Wizardmon X",
+    "Greymon X",
+    "Pumpkinmon",
+    "Impmon X",
+    "Tsukaimon",
+    "SaviorHackmon",
+    "UltimateBrachiomon",
+    "Cannoweissmon",
+    "Anubismon",
+    "Brachiomon",
+    "Hackmon",
+    "BaoHackmon",
+    "Kodokugumon",
+    "Ravmon(BM)",
+    "Panjyamon X",
+    "Rosemon(BM)",
+    "Hexblaumon",
+    "Vegiemon",
+    "Ophanimon",
+    "SnowGoblimon",
+    "ShineGreymon(BM)",
+    "Hellogarmon",
+    "MirageGaogamon(BM)",
+    "Agumon(2006)",
+    "Digiegg",
+    "Blucomon's Digitama"
+  ]
+}

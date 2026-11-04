@@ -1,0 +1,157 @@
+{
+  "id": "route-01",
+  "name": "File City Outskirts / Route 01",
+  "tile_size": 16,
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    1280,
+    720
+  ],
+  "map_size": [
+    40,
+    24
+  ],
+  "layers": [
+    {
+      "name": "ground",
+      "rows": [
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGGGGGGGFGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGGFGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGGGGFGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGFGGGGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGWWWWWWWWGGGG",
+        "GGGGGGGGGGGGGGPPPPPPPPPPPPPPPPGGGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTPPPPPPPPPPPPGGGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTPPPPPPPPPPPPGFGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTGPPPGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTGPPPGTTTTTTTGGGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTGPPPGTTTTTTTGGGGGGGGGG",
+        "GGGGGGGGGGGTTTTTTTGPPPGTTTTTTTGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPFTTTTTTTGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGGGGGPPPGGGGGGGGGGGGGGGGGG"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "type": "house",
+      "texture": "assets/objects/house.png",
+      "tile": [
+        11,
+        7
+      ]
+    },
+    {
+      "type": "sign",
+      "texture": "assets/objects/sign.png",
+      "tile": [
+        18,
+        10
+      ]
+    },
+    {
+      "type": "rock",
+      "texture": "assets/objects/rock.png",
+      "tile": [
+        8,
+        12
+      ]
+    },
+    {
+      "type": "rock",
+      "texture": "assets/objects/rock.png",
+      "tile": [
+        33,
+        17
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "species": "Agumon",
+      "texture": "assets/digimon/Agumon_f0.png",
+      "tile": [
+        19,
+        12
+      ],
+      "radius": [
+        10,
+        5
+      ]
+    },
+    {
+      "species": "Gabumon",
+      "texture": "assets/digimon/Gabumon_f0.png",
+      "tile": [
+        24,
+        15
+      ],
+      "radius": [
+        16,
+        4
+      ]
+    },
+    {
+      "species": "Patamon",
+      "texture": "assets/digimon/Patamon_f0.png",
+      "tile": [
+        15,
+        16
+      ],
+      "radius": [
+        24,
+        9
+      ]
+    },
+    {
+      "species": "Palmon",
+      "texture": "assets/digimon/Palmon_f0.png",
+      "tile": [
+        25,
+        16
+      ],
+      "radius": [
+        14,
+        7
+      ]
+    },
+    {
+      "species": "Gomamon",
+      "texture": "assets/digimon/Gomamon_f0.png",
+      "tile": [
+        17,
+        10
+      ],
+      "radius": [
+        8,
+        5
+      ]
+    },
+    {
+      "species": "Biyomon",
+      "texture": "assets/digimon/Piyomon_f0.png",
+      "tile": [
+        27,
+        12
+      ],
+      "radius": [
+        10,
+        8
+      ]
+    }
+  ],
+  "note": "Tile letters: G grass, P path, W water, T tall grass, F flower. This is a renderer-neutral manifest for the DSH plugin."
+}

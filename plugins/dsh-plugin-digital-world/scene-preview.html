@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital World · Canvas Scene Preview</title>
+<style>
+  :root { color-scheme:dark; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; width:100%; height:100%; background:#040a12; color:#d9f5ff; font-family:"Microsoft YaHei","Segoe UI",sans-serif; overflow:hidden; }
+  #app { width:100%; height:100%; display:flex; align-items:center; justify-content:center; position:relative; }
+  #stage { width:1280px; height:720px; position:relative; transform-origin:center center; background:#07111f; box-shadow:0 0 0 2px #203e58, 0 26px 100px rgba(0,0,0,.75); overflow:hidden; }
+  #scene { display:block; width:1280px; height:720px; image-rendering:pixelated; }
+  .scanlines { position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg, rgba(0,0,0,.06) 0 1px, transparent 1px 3px); opacity:.4; }
+  .topbar { position:absolute; left:0; right:0; top:0; display:flex; justify-content:space-between; align-items:flex-start; padding:22px 28px 40px; pointer-events:none; background:linear-gradient(180deg,rgba(3,8,15,.9),rgba(3,8,15,0)); }
+  .kicker { font-size:12px; letter-spacing:.3em; color:#f2c14e; font-weight:700; }
+  .title { margin-top:7px; font-size:30px; line-height:1.1; color:#f7fcff; text-shadow:0 2px 0 #02070e; }
+  .sub { margin-top:6px; color:#8db8ca; font-size:13px; }
+  .clock { text-align:right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+  .chip { border:1px solid #2a536b; background:rgba(6,20,33,.8); color:#a9d8e9; font-size:12px; padding:5px 9px; white-space:nowrap; }
+  .chip.gold { border-color:#8d7438; color:#f2c14e; }
+  .caption { position:absolute; left:28px; right:28px; bottom:86px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px; pointer-events:none; }
+  .caption-box { max-width:760px; padding:14px 17px; border:2px solid #24455d; background:rgba(5,17,28,.82); box-shadow:inset 0 0 0 2px #07111d; }
+  .caption-name { font-size:20px; font-weight:700; color:#eafcff; }
+  .caption-desc { margin-top:5px; font-size:13px; line-height:1.6; color:#8fbacb; }
+  .legend { font-size:11px; color:#7ea8b9; text-align:right; line-height:1.7; }
+  .controls { position:absolute; left:20px; right:20px; bottom:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; pointer-events:auto; padding:10px 12px; border:2px solid #24455d; background:rgba(5,17,28,.94); box-shadow:inset 0 0 0 2px #07111d; }
+  .group { display:flex; align-items:center; gap:5px; }
+  .group-label { font-size:10px; letter-spacing:.12em; color:#7097a8; margin-right:3px; }
+  button { appearance:none; border:1px solid #345a70; background:#0d2131; color:#bfe7f4; padding:6px 9px; font:inherit; font-size:11px; cursor:pointer; }
+  button:hover { border-color:#f2c14e; color:#f2c14e; }
+  button.active { border-color:#f2c14e; background:#5e4716; color:#fff4c5; }
+  .auto { margin-left:auto; color:#8ebaca; font-size:11px; display:flex; align-items:center; gap:7px; }
+  @media (max-width:900px) { .controls { gap:6px; } .group-label { display:none; } button { padding:5px 6px; font-size:10px; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="scene" width="1280" height="720"></canvas>
+    <div class="scanlines"></div>
+    <div class="topbar">
+      <div>
+        <div class="kicker">DIGITAL WORLD / SCENE PREVIEW</div>
+        <div class="title" id="sceneTitle">文件城 · File City</div>
+        <div class="sub" id="sceneSub">巨树与旧终端塔围绕的中央据点</div>
+      </div>
+      <div class="clock">
+        <span class="chip gold" id="timeChip">DAY · 10:00</span>
+        <span class="chip" id="weatherChip">晴 · SUNNY</span>
+        <span class="chip">CANVAS 1280×720</span>
+      </div>
+    </div>
+    <div class="caption">
+      <div class="caption-box">
+        <div class="caption-name" id="captionName">File City / 文件城</div>
+        <div class="caption-desc" id="captionDesc">巨树与旧终端塔围绕的中央据点，File City 的心脏。</div>
+      </div>
+      <div class="legend">动态场景演示<br>天空 · 生态 · 粒子 · 游荡数码兽</div>
+    </div>
+    <div class="controls">
+      <div class="group" id="regionButtons"><span class="group-label">区域</span></div>
+      <div class="group" id="timeButtons"><span class="group-label">时间</span></div>
+      <div class="group" id="weatherButtons"><span class="group-label">天气</span></div>
+      <label class="auto"><input id="autoToggle" type="checkbox" checked> 自动巡游</label>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const canvas = document.getElementById('scene');
+  const ctx = canvas.getContext('2d');
+  const stage = document.getElementById('stage');
+  const W = 1280, H = 720;
+
+  const REGIONS = [
+    { id:'file-city', zh:'文件城', name:'File City', color:'#f2c14e', sky:['#18334d','#4b7891'], ground:['#2e5d4e','#17362e'], desc:'巨树与旧终端塔围绕的中央据点，File City 的心脏。' },
+    { id:'green-gym', zh:'苍苔训练场', name:'Green Gym', color:'#65d29a', sky:['#163b3c','#4b8072'], ground:['#286242','#143a2b'], desc:'苔藓森林中的六座训练石碑，回荡着拳击木桩的声音。' },
+    { id:'native-forest', zh:'原初森林', name:'Native Forest', color:'#61c982', sky:['#0e302b','#39775b'], ground:['#1e5139','#0c291f'], desc:'发光孢子与古树覆盖的初始探索区域。' },
+    { id:'gear-savanna', zh:'齿轮荒原', name:'Gear Savanna', color:'#e6b95f', sky:['#3d301c','#a4773c'], ground:['#79552e','#3b2a1a'], desc:'风车与废弃齿轮构成的锈色草原，旧时代能量仍在流动。' },
+    { id:'amber-coast', zh:'琥珀海岸', name:'Amber Coast', color:'#ffc977', sky:['#163b56','#6c91a8'], ground:['#d1a15e','#795734'], desc:'琥珀色沙滩与潮汐洞窟，海风里带着数据盐的味道。' },
+    { id:'frost-ridge', zh:'霜脊高地', name:'Frost Ridge', color:'#b9e9ff', sky:['#1a3450','#738fb2'], ground:['#c6e0ed','#7897ae'], desc:'雪原、冰洞和冒着热气的温泉，冷得让数据都变慢。' },
+    { id:'cloudmire', zh:'云泽湿地', name:'Cloudmire', color:'#a8d8e8', sky:['#1b2d43','#5d7a92'], ground:['#2f5c51','#17352f'], desc:'漂浮的水洼和低云，稀有鸟系与水系数码兽在这里筑巢。' },
+    { id:'factorial-ruins', zh:'机械废都', name:'Factorial Ruins', color:'#a8c7df', sky:['#171c2b','#455267'], ground:['#404b57','#1d252d'], desc:'废弃工厂与数据电缆，机械系数码兽的旧圣地。' },
+    { id:'dragonbone-caldera', zh:'龙骸火山', name:'Dragonbone Caldera', color:'#ff8a61', sky:['#351a20','#934332'], ground:['#4d2921','#1c1213'], desc:'龙骨与黑曜石构成的火山口，龙系与病毒种的终盘猎场。' },
+  ];
+
+  const TIMES = [
+    { id:'dawn', label:'黎明', sky1:'#3c3158', sky2:'#d89273', light:'#ffd7a8', dark:0.12 },
+    { id:'day', label:'白天', sky1:null, sky2:null, light:'#fff4ce', dark:0 },
+    { id:'dusk', label:'黄昏', sky1:'#2b244f', sky2:'#bd6658', light:'#ffbd86', dark:0.12 },
+    { id:'night', label:'夜晚', sky1:'#050d1d', sky2:'#172845', light:'#d7e8ff', dark:0.42 },
+  ];
+
+  const WEATHERS = [
+    { id:'sunny', label:'晴', icon:'☀' },
+    { id:'rain', label:'细雨', icon:'☂' },
+    { id:'snow', label:'雪', icon:'❄' },
+    { id:'aurora', label:'极光', icon:'✦' },
+    { id:'storm', label:'数据风暴', icon:'⚡' },
+  ];
+
+  const state = {
+    region: 'file-city',
+    time: 'day',
+    weather: 'sunny',
+    auto: true,
+    autoClock: 0,
+  };
+
+  const stageScale = () => {
+    const scale = Math.min(window.innerWidth / W, window.innerHeight / H, 1.25);
+    stage.style.transform = `scale(${scale})`;
+  };
+  window.addEventListener('resize', stageScale);
+  stageScale();
+
+  function region() { return REGIONS.find(r => r.id === state.region) || REGIONS[0]; }
+  function time() { return TIMES.find(t => t.id === state.time) || TIMES[1]; }
+  function weather() { return WEATHERS.find(w => w.id === state.weather) || WEATHERS[0]; }
+
+  function makeControls() {
+    const rb = document.getElementById('regionButtons');
+    REGIONS.forEach(r => {
+      const b = document.createElement('button');
+      b.textContent = r.zh;
+      b.dataset.id = r.id;
+      b.onclick = () => { state.region = r.id; state.autoClock = 0; syncLabels(); };
+      rb.appendChild(b);
+    });
+    const tb = document.getElementById('timeButtons');
+    TIMES.forEach(t => {
+      const b = document.createElement('button');
+      b.textContent = t.label;
+      b.dataset.id = t.id;
+      b.onclick = () => { state.time = t.id; state.autoClock = 0; syncLabels(); };
+      tb.appendChild(b);
+    });
+    const wb = document.getElementById('weatherButtons');
+    WEATHERS.forEach(w => {
+      const b = document.createElement('button');
+      b.textContent = `${w.icon} ${w.label}`;
+      b.dataset.id = w.id;
+      b.onclick = () => { state.weather = w.id; state.autoClock = 0; syncLabels(); };
+      wb.appendChild(b);
+    });
+    document.getElementById('autoToggle').onchange = e => { state.auto = e.target.checked; state.autoClock = 0; };
+  }
+
+  function syncLabels() {
+    const r = region(), t = time(), w = weather();
+    document.getElementById('sceneTitle').textContent = `${r.zh} · ${r.name}`;
+    document.getElementById('sceneSub').textContent = r.desc;
+    document.getElementById('captionName').textContent = `${r.name} / ${r.zh}`;
+    document.getElementById('captionDesc').textContent = r.desc;
+    document.getElementById('timeChip').textContent = `${t.label} · ${String(10 + TIMES.indexOf(t) * 3).padStart(2,'0')}:00`;
+    document.getElementById('weatherChip').textContent = `${w.icon} ${w.label}`;
+    document.querySelectorAll('#regionButtons button').forEach(b => b.classList.toggle('active', b.dataset.id === state.region));
+    document.querySelectorAll('#timeButtons button').forEach(b => b.classList.toggle('active', b.dataset.id === state.time));
+    document.querySelectorAll('#weatherButtons button').forEach(b => b.classList.toggle('active', b.dataset.id === state.weather));
+  }
+
+  function px(x, y, w, h, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
+  }
+
+  function drawCritter(x, y, scale, seed, color, light, t, alpha = 1) {
+    const bob = Math.sin(t * 2.2 + seed) * 3;
+    const body = color;
+    const ink = '#07111b';
+    ctx.globalAlpha = alpha;
+    px(x - 30 * scale, y + 36 * scale, 60 * scale, 6 * scale, 'rgba(0,0,0,.28)');
+    px(x - 22 * scale, y - 10 * scale + bob, 44 * scale, 42 * scale, body);
+    px(x - 18 * scale, y - 42 * scale + bob, 36 * scale, 34 * scale, body);
+    px(x - 26 * scale, y - 2 * scale + bob, 12 * scale, 20 * scale, body);
+    px(x + 14 * scale, y - 2 * scale + bob, 12 * scale, 20 * scale, body);
+    px(x - 12 * scale, y - 30 * scale + bob, 6 * scale, 8 * scale, ink);
+    px(x + 6 * scale, y - 30 * scale + bob, 6 * scale, 8 * scale, ink);
+    px(x - 8 * scale, y - 4 * scale + bob, 16 * scale, 3 * scale, 'rgba(255,255,255,.7)');
+    px(x - 25 * scale, y + 26 * scale, 12 * scale, 6 * scale, '#07111b');
+    px(x + 13 * scale, y + 26 * scale, 12 * scale, 6 * scale, '#07111b');
+    px(x - 6 * scale, y - 38 * scale + bob, 12 * scale, 6 * scale, light);
+    ctx.globalAlpha = 1;
+  }
+
+  function drawTrainer(x, y, t) {
+    const sway = Math.sin(t * 1.8) * 2;
+    px(x - 4, y - 8, 8, 24, '#e7d19a');
+    px(x - 15, y + 18, 12, 24, '#e7d19a');
+    px(x + 3, y + 18, 12, 24, '#e7d19a');
+    px(x - 16, y - 2, 32, 24, '#d9f6ff');
+    px(x - 13, y + 2, 26, 12, '#27637a');
+    px(x - 12, y - 18, 24, 18, '#f1cfe0');
+    px(x - 16, y - 22, 32, 8, '#f2c14e');
+    px(x - 10, y - 16, 4, 4, '#2b3040');
+    px(x + 7, y - 16, 4, 4, '#2b3040');
+  }
+
+  function drawScene(t) {
+    const r = region(), tm = time(), w = weather();
+    const night = tm.id === 'night';
+    const skyTop = tm.sky1 || r.sky[0];
+    const skyBottom = tm.sky2 || r.sky[1];
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const sky = ctx.createLinearGradient(0, 0, 0, H * 0.68);
+    sky.addColorStop(0, skyTop);
+    sky.addColorStop(1, skyBottom);
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, W, H);
+
+    // stars
+    if (night || tm.id === 'dusk' || w.id === 'aurora') {
+      for (let i = 0; i < 90; i++) {
+        const x = (i * 173 + 37) % W;
+        const y = (i * 61 + 19) % 330;
+        const alpha = 0.22 + (Math.sin(t * 1.7 + i) + 1) * 0.33;
+        px(x, y, i % 5 === 0 ? 3 : 2, i % 5 === 0 ? 3 : 2, `rgba(220,246,255,${alpha.toFixed(2)})`);
+      }
+    }
+    // aurora
+    if (w.id === 'aurora') {
+      for (let i = 0; i < 3; i++) {
+        const grad = ctx.createLinearGradient(0, 80 + i * 55, W, 130 + i * 45);
+        grad.addColorStop(0, 'rgba(111,255,205,.02)');
+        grad.addColorStop(0.45, `rgba(${i === 1 ? '146,184,255' : '111,255,205'},.18)`);
+        grad.addColorStop(1, 'rgba(111,255,205,.01)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 70 + i * 55, W, 70);
+      }
+    }
+    // sun / moon
+    const orbX = 220 + ((t * 0.8) % 900);
+    const orbY = 145 - Math.sin((t * 0.08) % Math.PI) * 30;
+    const glow = ctx.createRadialGradient(orbX, orbY, 2, orbX, orbY, 110);
+    glow.addColorStop(0, night ? 'rgba(214,235,255,.9)' : 'rgba(255,231,158,.9)');
+    glow.addColorStop(0.18, night ? 'rgba(214,235,255,.25)' : 'rgba(255,224,133,.25)');
+    glow.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(orbX - 120, orbY - 120, 240, 240);
+    ctx.beginPath();
+    ctx.arc(orbX, orbY, night ? 26 : 33, 0, Math.PI * 2);
+    ctx.fillStyle = night ? '#e2efff' : '#ffe4a1';
+    ctx.fill();
+
+    // clouds
+    for (let i = 0; i < 5; i++) {
+      const x = ((t * (10 + i * 3) + i * 280) % 1500) - 160;
+      const y = 90 + (i * 67) % 170;
+      const w0 = 130 + (i % 3) * 56;
+      px(x, y, w0, 15, 'rgba(224,247,255,.14)');
+      px(x + 30, y - 13, 58, 15, 'rgba(224,247,255,.14)');
+      px(x + 74, y - 7, 38, 12, 'rgba(224,247,255,.12)');
+    }
+
+    // distant hills
+    ctx.fillStyle = night ? '#091725' : '#20473f';
+    ctx.beginPath();
+    ctx.moveTo(0, 440);
+    for (let x = 0; x <= W; x += 70) {
+      ctx.lineTo(x, 390 + Math.sin(x * 0.009 + 1.1) * 42 + Math.sin(x * 0.023) * 14);
+    }
+    ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = night ? '#07111b' : r.ground[1];
+    ctx.beginPath();
+    ctx.moveTo(0, 520);
+    for (let x = 0; x <= W; x += 90) {
+      ctx.lineTo(x, 485 + Math.sin(x * 0.006 + 2.4) * 24);
+    }
+    ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+
+    // ground
+    ctx.fillStyle = r.ground[0];
+    ctx.fillRect(0, 520, W, 200);
+    for (let i = 0; i < 50; i++) {
+      const x = (i * 137 + 17) % W;
+      const y = 540 + (i * 37) % 160;
+      px(x, y, 24, 3, i % 3 === 0 ? 'rgba(255,255,255,.07)' : 'rgba(0,0,0,.12)');
+    }
+
+    // regional props
+    if (r.id === 'file-city') {
+      // central big tree + terminal towers
+      px(480, 320, 44, 220, '#5e4129');
+      px(435, 290, 134, 70, '#2f6850');
+      px(455, 255, 94, 55, '#3f855f');
+      px(475, 230, 54, 38, '#4d9a6b');
+      px(850, 380, 45, 160, '#3b5060');
+      px(870, 350, 6, 40, '#a7d8e8');
+      px(840, 420, 18, 18, '#f2c14e');
+      px(180, 420, 70, 120, '#4e3b28');
+      px(160, 400, 110, 25, '#765334');
+    } else if (r.id === 'green-gym') {
+      // training stones / log / waterfall
+      for (let i = 0; i < 5; i++) {
+        px(190 + i * 155, 350 - (i % 2) * 20, 24, 180, '#7b8179');
+        px(180 + i * 155, 330 - (i % 2) * 20, 44, 14, '#aeb5aa');
+      }
+      px(650, 300, 20, 220, '#3f91a4');
+      px(670, 300, 80, 220, 'rgba(128,226,240,.22)');
+      px(380, 490, 150, 36, '#6d4b2a');
+    } else if (r.id === 'native-forest') {
+      for (let i = 0; i < 7; i++) {
+        const x = 70 + i * 180;
+        const h = 150 + (i % 3) * 60;
+        px(x, 520 - h, 16, h, '#193b2d');
+        px(x - 42, 490 - h, 100, 28, i % 2 ? '#2c6949' : '#39845a');
+        px(x - 28, 462 - h, 72, 28, i % 2 ? '#39845a' : '#2c6949');
+      }
+      // glowing spores
+      for (let i = 0; i < 25; i++) {
+        const x = (i * 97 + Math.sin(t + i) * 20) % W;
+        const y = 390 + (i * 37) % 180;
+        px(x, y, 3, 3, 'rgba(175,255,199,.72)');
+      }
+    } else if (r.id === 'gear-savanna') {
+      for (let i = 0; i < 4; i++) {
+        const x = 130 + i * 280;
+        const h = 210 + (i % 2) * 60;
+        px(x, 520 - h, 10, h, '#5e4a30');
+        px(x - 35, 330 - h, 80, 9, '#e0b75c');
+        px(x - 20, 345 - h, 50, 8, '#b9893f');
+        ctx.beginPath();
+        ctx.arc(x + 5, 360 - h, 17, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(224,186,99,.65)';
+        ctx.fill();
+      }
+      px(220, 480, 140, 18, '#654b2d');
+      px(760, 500, 90, 30, '#5a4329');
+    } else if (r.id === 'amber-coast') {
+      ctx.fillStyle = '#1b6884';
+      ctx.fillRect(0, 560, W, 160);
+      for (let i = 0; i < 34; i++) {
+        const x = (i * 97 + t * 20) % W;
+        const y = 575 + (i * 17) % 130;
+        px(x, y, 46, 3, 'rgba(180,241,255,.3)');
+      }
+      px(80, 505, 320, 55, '#d8ac68');
+      px(780, 480, 120, 80, '#8f6b43');
+      // small boat
+      px(620, 540, 90, 18, '#6b4b2d');
+      px(650, 510, 4, 34, '#e0c08a');
+    } else if (r.id === 'frost-ridge') {
+      ctx.fillStyle = '#d8eef8';
+      ctx.fillRect(0, 520, W, 200);
+      for (let i = 0; i < 5; i++) {
+        const x = 90 + i * 240;
+        ctx.fillStyle = '#e9f8ff';
+        ctx.beginPath();
+        ctx.moveTo(x, 530);
+        ctx.lineTo(x + 80, 390 - (i % 2) * 40);
+        ctx.lineTo(x + 170, 530);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = 'rgba(114,162,188,.35)';
+        ctx.beginPath();
+        ctx.moveTo(x + 42, 460);
+        ctx.lineTo(x + 80, 390 - (i % 2) * 40);
+        ctx.lineTo(x + 112, 460);
+        ctx.closePath();
+        ctx.fill();
+      }
+      // hot spring
+      ctx.fillStyle = 'rgba(133,218,227,.45)';
+      ctx.beginPath();
+      ctx.ellipse(640, 600, 160, 30, 0, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (r.id === 'cloudmire') {
+      for (let i = 0; i < 12; i++) {
+        const x = 30 + i * 105;
+        const y = 500 + (i % 4) * 24;
+        px(x, y, 80, 10, 'rgba(129,207,220,.2)');
+        px(x + 18, y - 8, 44, 8, 'rgba(129,207,220,.15)');
+      }
+      for (let i = 0; i < 8; i++) {
+        const x = ((i * 153 + t * 12) % 1300) - 30;
+        px(x, 360 + (i * 41) % 100, 80, 6, 'rgba(218,242,255,.12)');
+      }
+      for (let i = 0; i < 6; i++) {
+        const x = 70 + i * 190;
+        const h = 120 + (i % 3) * 50;
+        px(x, 520 - h, 10, h, '#294b3e');
+        px(x - 26, 490 - h, 62, 20, '#3b6b55');
+      }
+    } else if (r.id === 'factorial-ruins') {
+      ctx.fillStyle = '#252d36';
+      ctx.fillRect(0, 520, W, 200);
+      for (let i = 0; i < 7; i++) {
+        px(60 + i * 170, 360 - (i % 3) * 44, 34, 260, i % 2 ? '#394958' : '#2f3b47');
+        px(80 + i * 170, 330 - (i % 3) * 44, 90, 12, '#516676');
+      }
+      for (let i = 0; i < 4; i++) {
+        px(100 + i * 300, 440, 190, 8, '#4b6070');
+        px(100 + i * 300, 440, 8, 80, '#4b6070');
+      }
+      for (let i = 0; i < 20; i++) {
+        const x = (i * 113 + 23) % W;
+        const y = 560 + (i * 27) % 120;
+        px(x, y, 4, 4, i % 4 === 0 ? '#8bdaff' : '#6a9db1');
+      }
+    } else if (r.id === 'dragonbone-caldera') {
+      ctx.fillStyle = '#241515';
+      ctx.fillRect(0, 520, W, 200);
+      ctx.fillStyle = '#ff6440';
+      ctx.beginPath();
+      ctx.moveTo(430, 540); ctx.lineTo(540, 380); ctx.lineTo(650, 540); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#ffd06a';
+      ctx.beginPath();
+      ctx.moveTo(520, 520); ctx.lineTo(540, 380); ctx.lineTo(560, 520); ctx.closePath(); ctx.fill();
+      // bones
+      for (let i = 0; i < 5; i++) {
+        const x = 100 + i * 230;
+        px(x, 600, 80, 10, '#8d8b7c');
+        px(x + 10, 560, 9, 60, '#8d8b7c');
+        px(x + 58, 560, 9, 60, '#8d8b7c');
+      }
+      for (let i = 0; i < 18; i++) {
+        const x = (i * 83 + t * 18) % W;
+        const y = 580 + (i * 18) % 90;
+        px(x, y, 3, 3, 'rgba(255,140,83,.7)');
+      }
+    }
+
+    // foreground animated creature silhouettes
+    drawCritter(280 + Math.sin(t * 0.8) * 70, 575, 1.1, 3, '#6fd6ff', '#d7fbff', t, 0.55);
+    drawCritter(930 + Math.sin(t * 0.65 + 2) * 90, 555, 0.95, 9, '#ff9c78', '#ffe0c9', t, 0.4);
+    drawCritter(760 + Math.sin(t * 0.9 + 1) * 50, 625, 0.8, 13, '#8ce5af', '#d9ffe9', t, 0.32);
+
+    // trainer + partner
+    drawTrainer(470, 600, t);
+    drawCritter(575, 590, 1.35, 7, '#7ce7ff', '#d4fbff', t, 1);
+
+    // weather particles
+    if (w.id === 'rain' || w.id === 'storm') {
+      ctx.strokeStyle = 'rgba(181,231,255,.48)';
+      ctx.lineWidth = 2;
+      for (let i = 0; i < 100; i++) {
+        const x = (i * 137 + t * 160) % (W + 80) - 40;
+        const y = (i * 71 + t * 420) % (H + 80) - 40;
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 8, y + 22); ctx.stroke();
+      }
+    }
+    if (w.id === 'snow' || r.id === 'frost-ridge') {
+      for (let i = 0; i < 70; i++) {
+        const x = (i * 113 + t * 24) % (W + 20) - 10;
+        const y = (i * 61 + t * 38) % (H + 20) - 10;
+        px(x, y, 4, 4, 'rgba(245,253,255,.86)');
+      }
+    }
+    if (r.id === 'native-forest' || w.id === 'aurora') {
+      for (let i = 0; i < 34; i++) {
+        const x = (i * 137 + Math.sin(t * 0.6 + i) * 20) % W;
+        const y = 380 + (i * 43) % 210;
+        px(x, y, 3, 3, i % 3 === 0 ? 'rgba(255,238,145,.8)' : 'rgba(166,255,206,.7)');
+      }
+    }
+    // data storm glitch bands
+    if (w.id === 'storm') {
+      for (let i = 0; i < 16; i++) {
+        const y = (i * 53 + t * 120) % H;
+        px(0, y, W, 2, i % 2 ? 'rgba(166,235,255,.16)' : 'rgba(219,155,255,.12)');
+      }
+      ctx.fillStyle = 'rgba(70, 25, 120, .12)';
+      ctx.fillRect(0, 0, W, H);
+    }
+    // night tint
+    if (tm.dark > 0) {
+      ctx.fillStyle = `rgba(3,9,22,${tm.dark})`;
+      ctx.fillRect(0, 0, W, H);
+    }
+  }
+
+  let last = 0;
+  function loop(now) {
+    if (!last) last = now;
+    const t = now / 1000;
+    if (state.auto && now - last > 9500) {
+      last = now;
+      const ri = REGIONS.findIndex(r => r.id === state.region);
+      state.region = REGIONS[(ri + 1) % REGIONS.length].id;
+      state.time = TIMES[(TIMES.findIndex(x => x.id === state.time) + 1) % TIMES.length].id;
+      state.weather = WEATHERS[(WEATHERS.findIndex(x => x.id === state.weather) + 1) % WEATHERS.length].id;
+      syncLabels();
+    }
+    drawScene(t);
+    requestAnimationFrame(loop);
+  }
+
+  makeControls();
+  syncLabels();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

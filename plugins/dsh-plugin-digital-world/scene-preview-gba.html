@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital World · FireRed-style Canvas Preview</title>
+<style>
+  :root { color-scheme:dark; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; width:100%; height:100%; background:#040a12; color:#d9f5ff; font-family:"Microsoft YaHei","Segoe UI",sans-serif; overflow:hidden; }
+  #app { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  #stage { width:1280px; height:720px; position:relative; transform-origin:center center; overflow:hidden; background:#0a1424; box-shadow:0 0 0 2px #203e58, 0 26px 100px rgba(0,0,0,.75); }
+  #scene { display:block; width:1280px; height:720px; image-rendering:pixelated; image-rendering:crisp-edges; }
+  .scanlines { position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px); opacity:.32; }
+  .hud { position:absolute; inset:0; pointer-events:none; }
+  .location { position:absolute; left:22px; top:20px; padding:7px 11px; border:2px solid #1c3149; background:#eef7e8; color:#283b46; box-shadow:0 3px 0 rgba(0,0,0,.3); font-size:14px; font-weight:700; letter-spacing:.03em; }
+  .location small { display:block; margin-top:2px; color:#63777e; font-size:9px; font-weight:500; letter-spacing:.12em; }
+  .chips { position:absolute; right:20px; top:20px; display:flex; gap:5px; }
+  .chip { border:2px solid #1d3348; background:rgba(11,29,44,.9); color:#d6f0f5; padding:5px 8px; font-size:10px; }
+  .chip.gold { color:#f8d77d; border-color:#7d6330; }
+  .hint { position:absolute; right:22px; bottom:78px; color:rgba(211,244,255,.6); font-size:10px; line-height:1.6; text-align:right; }
+  .controls { position:absolute; left:16px; right:16px; bottom:14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; padding:9px 11px; border:2px solid #1c3448; background:rgba(5,17,28,.94); box-shadow:inset 0 0 0 2px #07111d; pointer-events:auto; }
+  .group { display:flex; align-items:center; gap:4px; }
+  .group-label { font-size:9px; color:#719aaa; letter-spacing:.1em; margin-right:2px; }
+  button { appearance:none; border:1px solid #345a70; background:#0d2131; color:#c1e8f4; padding:5px 8px; font:inherit; font-size:10px; cursor:pointer; }
+  button:hover { border-color:#f2c14e; color:#f2c14e; }
+  button.active { border-color:#f2c14e; background:#574312; color:#fff4c5; }
+  .auto { margin-left:auto; display:flex; align-items:center; gap:6px; color:#8ebaca; font-size:10px; }
+  .corner { position:absolute; width:8px; height:8px; border-color:#f2c14e; opacity:.8; }
+  @media (max-width:900px) { .group-label { display:none; } .controls { gap:4px; } button { padding:4px 6px; font-size:9px; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="scene" width="320" height="180"></canvas>
+    <div class="scanlines"></div>
+    <div class="hud">
+      <div class="location" id="location">文件城郊外 · Route 01<small>FILE ISLAND / ROUTE 01</small></div>
+      <div class="chips">
+        <span class="chip gold" id="timeChip">白天 10:00</span>
+        <span class="chip" id="weatherChip">☀ 晴</span>
+      </div>
+      <div class="hint">方向键 / WASD 行走<br>自动巡游默认开启</div>
+    </div>
+    <div class="controls">
+      <div class="group"><span class="group-label">场景</span>
+        <button id="routeBtn" class="active">Route 01</button>
+        <button id="gymBtn">苍苔训练场</button>
+        <button id="coastBtn">琥珀海岸</button>
+      </div>
+      <div class="group"><span class="group-label">时间</span>
+        <button data-time="day" class="active">白天</button>
+        <button data-time="dusk">黄昏</button>
+        <button data-time="night">夜晚</button>
+      </div>
+      <div class="group"><span class="group-label">天气</span>
+        <button data-weather="sunny" class="active">晴</button>
+        <button data-weather="rain">雨</button>
+        <button data-weather="snow">雪</button>
+      </div>
+      <label class="auto"><input id="autoToggle" type="checkbox" checked> 自动巡游</label>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const canvas = document.getElementById('scene');
+  const ctx = canvas.getContext('2d');
+  const stage = document.getElementById('stage');
+  const VW = 320, VH = 180, TILE = 16;
+
+  const SCENES = {
+    route: {
+      name: '文件城郊外 · Route 01', en: 'FILE ISLAND / ROUTE 01',
+      grass: '#79c95b', grassDark: '#5cae47', grassLight: '#97df72',
+      path: '#d6b477', pathDark: '#b88e55', pathLight: '#ecd69a',
+      water: '#55a9cf', waterDark: '#347fa9', waterLight: '#94e0f2',
+      tree: '#2d7548', treeLight: '#45975e', treeDark: '#1d5333',
+      tall: '#4c9d47', flower: '#f4e265', accent: '#f2c14e', house: true, palm: false,
+    },
+    gym: {
+      name: '苍苔训练场 · Green Gym', en: 'FILE ISLAND / GREEN GYM',
+      grass: '#5b9b57', grassDark: '#427c41', grassLight: '#7fc873',
+      path: '#bd9b6c', pathDark: '#8e6e48', pathLight: '#dfc08b',
+      water: '#4b91a2', waterDark: '#2d6578', waterLight: '#8cd7da',
+      tree: '#2b6b47', treeLight: '#4b915e', treeDark: '#1a4c32',
+      tall: '#3d8848', flower: '#e7d56b', accent: '#7de0a4', house: false, palm: false,
+    },
+    coast: {
+      name: '琥珀海岸 · Amber Coast', en: 'FILE ISLAND / AMBER COAST',
+      grass: '#d6b678', grassDark: '#ba9560', grassLight: '#f0d79a',
+      path: '#c69a5d', pathDark: '#9d7342', pathLight: '#efc985',
+      water: '#349ec6', waterDark: '#217396', waterLight: '#89e8f0',
+      tree: '#327b58', treeLight: '#56a977', treeDark: '#1e5138',
+      tall: '#b8a356', flower: '#ffcf72', accent: '#ffc977', house: false, palm: true,
+    },
+  };
+
+  const state = {
+    scene: 'route',
+    time: 'day',
+    weather: 'sunny',
+    auto: true,
+    t: 0,
+    player: { x: 14, y: 10, px: 14 * TILE, py: 10 * TILE, dir: 'down', moving: false, fromX: 14, fromY: 10, toX: 14, toY: 10, progress: 0, frame: 0 },
+    partner: { x: 13, y: 9, px: 13 * TILE, py: 9 * TILE, dir: 'down', frame: 0 },
+    autoIndex: 0,
+    stepCooldown: 0,
+  };
+
+  let grid = [];
+  let trees = [];
+  let flowers = [];
+  let rocks = [];
+  let fences = [];
+  let house = null;
+  let signs = [];
+  let npcs = [];
+
+  function makeGrid(sceneId) {
+    const rows = 24, cols = 32;
+    grid = Array.from({ length: rows }, () => Array(cols).fill('grass'));
+    // path spine
+    for (let y = 7; y < 24; y++) for (let x = 13; x <= 15; x++) grid[y][x] = 'path';
+    for (let y = 12; y <= 14; y++) for (let x = 13; x <= 24; x++) grid[y][x] = 'path';
+    // pond on the right
+    if (sceneId === 'route' || sceneId === 'coast') {
+      for (let y = 3; y <= 7; y++) for (let x = 24; x <= 29; x++) grid[y][x] = 'water';
+    }
+    // tall grass fields
+    for (let y = 16; y <= 22; y++) for (let x = 3; x <= 8; x++) grid[y][x] = 'tall';
+    for (let y = 16; y <= 21; y++) for (let x = 19; x <= 23; x++) grid[y][x] = 'tall';
+    // training yard
+    if (sceneId === 'gym') {
+      for (let y = 4; y <= 9; y++) for (let x = 4; x <= 11; x++) grid[y][x] = 'path';
+    }
+    // border grass
+    return grid;
+  }
+
+  function makeObjects(sceneId) {
+    trees = [
+      [1,1],[4,1],[8,1],[11,2],[16,1],[20,1],[24,1],[28,1],[31,2],
+      [1,5],[1,9],[2,13],[1,17],[1,21],[2,23],
+      [9,5],[10,8],[7,9],[4,11],[18,5],[21,7],[26,10],[29,12],
+      [31,5],[31,9],[31,13],[31,17],[31,21],
+      [20,23],[24,23],[28,23],[30,23],[25,18],[28,20],
+    ];
+    if (sceneId === 'coast') trees = trees.slice(0, 20);
+    flowers = [];
+    let seed = 31;
+    const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    for (let i = 0; i < 90; i++) {
+      const x = 1 + Math.floor(rnd() * 29), y = 1 + Math.floor(rnd() * 22);
+      if (grid[y][x] === 'grass') flowers.push({ x, y, color: i % 4 === 0 ? '#f4e265' : i % 4 === 1 ? '#ff9db0' : '#f8fbff' });
+    }
+    rocks = [[1,3],[9,3],[11,12],[27,12],[30,15],[3,10],[23,3],[30,22]].filter(([x,y]) => grid[y]?.[x] !== 'water');
+    fences = [];
+    if (sceneId === 'route') {
+      for (let x = 4; x <= 8; x++) fences.push([x, 8]);
+      for (let y = 4; y <= 7; y++) fences.push([3, y]);
+    }
+    house = sceneId === 'route' ? { x: 4, y: 4, w: 4, h: 3 } : null;
+    signs = sceneId === 'route' ? [{ x: 11, y: 10 }] : [];
+    npcs = [
+      { x: 17, y: 13, px: 17*TILE, py: 13*TILE, dir: 'left', color: '#d16b6b', pace: 0.8, phase: 0 },
+      { x: 24, y: 12, px: 24*TILE, py: 12*TILE, dir: 'down', color: '#8b6ecc', pace: 0.6, phase: 2.3 },
+      { x: 10, y: 19, px: 10*TILE, py: 19*TILE, dir: 'up', color: '#4b9b8c', pace: 0.9, phase: 4.1 },
+    ];
+  }
+
+  // A route of safe path waypoints used by the auto-walker.
+  const AUTO_ROUTE = [
+    [14,10],[14,13],[17,13],[17,12],[24,12],[24,13],[22,13],[22,10],
+    [16,10],[16,13],[14,13],[14,10],[12,10],[12,14],[13,14],[13,22],
+  ];
+
+  function solid(tx, ty) {
+    if (tx < 0 || ty < 0 || tx >= 32 || ty >= 24) return true;
+    if (grid[ty]?.[tx] === 'water') return true;
+    if (house && tx >= house.x - 1 && tx < house.x + house.w + 1 && ty >= house.y - 1 && ty < house.y + house.h + 1) return true;
+    if (trees.some(([x,y]) => x === tx && y === ty)) return true;
+    if (rocks.some(([x,y]) => x === tx && y === ty)) return true;
+    if (fences.some(([x,y]) => x === tx && y === ty)) return true;
+    return false;
+  }
+
+  function playerTile() {
+    return { x: Math.floor(state.player.px / TILE), y: Math.floor(state.player.py / TILE) };
+  }
+
+  function startStep(dx, dy) {
+    const p = state.player;
+    if (p.moving) return false;
+    const tx = p.x + dx, ty = p.y + dy;
+    if (solid(tx, ty)) { p.dir = dx < 0 ? 'left' : dx > 0 ? 'right' : dy < 0 ? 'up' : 'down'; return false; }
+    p.fromX = p.x; p.fromY = p.y; p.toX = tx; p.toY = ty;
+    p.x = tx; p.y = ty; p.progress = 0; p.moving = true; p.dir = dx < 0 ? 'left' : dx > 0 ? 'right' : dy < 0 ? 'up' : 'down';
+    return true;
+  }
+
+  function updatePlayer(dt) {
+    const p = state.player;
+    if (p.moving) {
+      p.progress = Math.min(1, p.progress + dt / 0.16);
+      p.px = (p.fromX + (p.toX - p.fromX) * p.progress) * TILE;
+      p.py = (p.fromY + (p.toY - p.fromY) * p.progress) * TILE;
+      p.frame = Math.floor(p.progress * 4) % 2;
+      if (p.progress >= 1) {
+        p.px = p.x * TILE; p.py = p.y * TILE; p.moving = false;
+      }
+    } else if (state.auto) {
+      state.stepCooldown -= dt;
+      if (state.stepCooldown <= 0) {
+        const target = AUTO_ROUTE[state.autoIndex % AUTO_ROUTE.length];
+        const dx = Math.sign(target[0] - p.x), dy = Math.sign(target[1] - p.y);
+        if (dx === 0 && dy === 0) { state.autoIndex += 1; state.stepCooldown = 0.15; }
+        else if (dx !== 0) { if (!startStep(dx, 0)) { state.autoIndex += 1; state.stepCooldown = 0.3; } else state.stepCooldown = 0.2; }
+        else if (dy !== 0) { if (!startStep(0, dy)) { state.autoIndex += 1; state.stepCooldown = 0.3; } else state.stepCooldown = 0.2; }
+      }
+    }
+    // partner trails the tile behind the player.
+    const trailX = p.dir === 'left' ? p.x + 1 : p.dir === 'right' ? p.x - 1 : p.x;
+    const trailY = p.dir === 'up' ? p.y + 1 : p.dir === 'down' ? p.y - 1 : p.y;
+    if (!p.moving) { state.partner.x = trailX; state.partner.y = trailY; }
+    state.partner.px += (state.partner.x * TILE - state.partner.px) * Math.min(1, dt * 8);
+    state.partner.py += (state.partner.y * TILE - state.partner.py) * Math.min(1, dt * 8);
+    state.partner.frame = Math.floor(state.t * 2.5) % 2;
+  }
+
+  function drawGroundTile(x, y, type, sx, sy, p) {
+    if (type === 'water') {
+      ctx.fillStyle = p.water;
+      ctx.fillRect(sx, sy, 16, 16);
+      ctx.fillStyle = p.waterDark;
+      ctx.fillRect(sx, sy + 13, 16, 3);
+      ctx.fillStyle = p.waterLight;
+      const shift = Math.floor((state.t * 5 + x * 7 + y * 3) % 16);
+      ctx.fillRect(sx + shift, sy + 5, 7, 2);
+      ctx.fillRect(sx + ((shift + 8) % 16), sy + 10, 5, 2);
+      return;
+    }
+    if (type === 'path') {
+      ctx.fillStyle = p.path;
+      ctx.fillRect(sx, sy, 16, 16);
+      ctx.fillStyle = p.pathLight;
+      ctx.fillRect(sx + 2, sy + 3, 3, 2);
+      ctx.fillRect(sx + 11, sy + 8, 3, 2);
+      ctx.fillRect(sx + 6, sy + 13, 2, 2);
+      ctx.fillStyle = p.pathDark;
+      ctx.fillRect(sx + 13, sy + 2, 2, 2);
+      ctx.fillRect(sx + 4, sy + 9, 2, 2);
+      return;
+    }
+    ctx.fillStyle = type === 'tall' ? p.tall : p.grass;
+    ctx.fillRect(sx, sy, 16, 16);
+    // grass texture: small blades and speckles vary by tile
+    const h = (x * 17 + y * 29) % 7;
+    ctx.fillStyle = p.grassLight;
+    ctx.fillRect(sx + 2 + (h % 3), sy + 11, 2, 3);
+    ctx.fillRect(sx + 11, sy + 4 + (h % 2), 2, 3);
+    ctx.fillStyle = p.grassDark;
+    ctx.fillRect(sx + 6, sy + 5, 2, 2);
+    ctx.fillRect(sx + 13, sy + 12, 2, 2);
+    if (type === 'tall') {
+      for (let i = 0; i < 5; i++) {
+        const bx = sx + 2 + i * 3;
+        const sway = Math.sin(state.t * 2.5 + x + y + i) > 0 ? 1 : 0;
+        ctx.fillStyle = p.tall;
+        ctx.fillRect(bx, sy + 6, 2, 9);
+        ctx.fillStyle = p.grassLight;
+        ctx.fillRect(bx + sway, sy + 4, 2, 4);
+      }
+    }
+  }
+
+  function drawFlower(f, p, camX, camY) {
+    const sx = f.x * TILE - camX, sy = f.y * TILE - camY;
+    const sway = Math.sin(state.t * 2 + f.x * 1.7) > 0 ? 1 : 0;
+    ctx.fillStyle = '#386c38';
+    ctx.fillRect(sx + 8, sy + 10, 2, 4);
+    ctx.fillStyle = f.color;
+    ctx.fillRect(sx + 6 + sway, sy + 7, 3, 3);
+    ctx.fillRect(sx + 9 + sway, sy + 8, 2, 2);
+  }
+
+  function drawTree(t, p, camX, camY) {
+    const sx = t[0] * TILE - camX, sy = t[1] * TILE - camY;
+    ctx.fillStyle = 'rgba(0,0,0,.20)';
+    ctx.fillRect(sx + 7, sy + 7, 14, 9);
+    ctx.fillStyle = '#5c3e28';
+    ctx.fillRect(sx + 7, sy + 9, 4, 7);
+    ctx.fillStyle = p.treeDark;
+    ctx.fillRect(sx + 2, sy + 4, 12, 9);
+    ctx.fillRect(sx + 4, sy + 1, 8, 4);
+    ctx.fillStyle = p.tree;
+    ctx.fillRect(sx + 3, sy + 3, 11, 8);
+    ctx.fillRect(sx + 5, sy + 1, 7, 3);
+    ctx.fillStyle = p.treeLight;
+    ctx.fillRect(sx + 4, sy + 2, 4, 3);
+    ctx.fillRect(sx + 9, sy + 4, 2, 2);
+  }
+
+  function drawFence(f, p, camX, camY) {
+    const sx = f[0] * TILE - camX, sy = f[1] * TILE - camY;
+    ctx.fillStyle = '#70472c';
+    ctx.fillRect(sx + 2, sy + 5, 2, 9);
+    ctx.fillRect(sx + 12, sy + 5, 2, 9);
+    ctx.fillRect(sx + 1, sy + 7, 14, 2);
+    ctx.fillStyle = '#a67545';
+    ctx.fillRect(sx + 1, sy + 7, 14, 1);
+  }
+
+  function drawHouse(h, p, camX, camY) {
+    const x = h.x * TILE - camX, y = h.y * TILE - camY;
+    ctx.fillStyle = 'rgba(0,0,0,.25)';
+    ctx.fillRect(x + 4, y + h.h * TILE + 2, h.w * TILE - 8, 6);
+    // walls
+    ctx.fillStyle = '#f1e3bb';
+    ctx.fillRect(x + 4, y + 18, h.w * TILE - 8, h.h * TILE - 18);
+    // roof
+    ctx.fillStyle = '#a84f42';
+    ctx.fillRect(x + 1, y + 8, h.w * TILE - 2, 13);
+    ctx.fillRect(x + 7, y + 3, h.w * TILE - 14, 7);
+    ctx.fillStyle = '#76352e';
+    ctx.fillRect(x + 7, y + 15, h.w * TILE - 14, 3);
+    // door and windows
+    ctx.fillStyle = '#6b422b';
+    ctx.fillRect(x + 24, y + 30, 10, 20);
+    ctx.fillStyle = '#6fb3c9';
+    ctx.fillRect(x + 9, y + 26, 10, 10);
+    ctx.fillRect(x + 42, y + 26, 10, 10);
+    ctx.fillStyle = '#d6f4ff';
+    ctx.fillRect(x + 12, y + 28, 3, 6);
+    ctx.fillRect(x + 45, y + 28, 3, 6);
+  }
+
+  function drawSign(s, p, camX, camY) {
+    const x = s.x * TILE - camX, y = s.y * TILE - camY;
+    ctx.fillStyle = '#5e4228';
+    ctx.fillRect(x + 7, y + 8, 3, 8);
+    ctx.fillStyle = '#d4a45b';
+    ctx.fillRect(x + 2, y + 4, 12, 7);
+    ctx.fillStyle = '#76502f';
+    ctx.fillRect(x + 4, y + 6, 8, 1);
+    ctx.fillRect(x + 4, y + 8, 6, 1);
+  }
+
+  function drawRock(r, p, camX, camY) {
+    const x = r[0] * TILE - camX, y = r[1] * TILE - camY;
+    ctx.fillStyle = '#5f6b62';
+    ctx.fillRect(x + 4, y + 7, 8, 6);
+    ctx.fillStyle = '#8d9989';
+    ctx.fillRect(x + 5, y + 6, 6, 3);
+  }
+
+  function drawTrainer(sprite, x, y, dir, frame, colors, isPlayer) {
+    const sx = Math.round(x), sy = Math.round(y);
+    ctx.fillStyle = 'rgba(0,0,0,.24)';
+    ctx.fillRect(sx + 2, sy + 21, 12, 3);
+    // legs
+    ctx.fillStyle = colors.pants;
+    const legShift = frame ? 1 : 0;
+    ctx.fillRect(sx + 4, sy + 18, 3, 5 - legShift);
+    ctx.fillRect(sx + 9, sy + 18 + legShift, 3, 5 - legShift);
+    // body
+    ctx.fillStyle = colors.shirt;
+    ctx.fillRect(sx + 3, sy + 11, 10, 8);
+    ctx.fillStyle = colors.pack;
+    ctx.fillRect(sx + 4, sy + 12, 3, 6);
+    // arms
+    ctx.fillStyle = colors.skin;
+    ctx.fillRect(sx + 1, sy + 12 + (frame ? 1 : 0), 2, 4);
+    ctx.fillRect(sx + 13, sy + 12 + (frame ? 0 : 1), 2, 4);
+    // head
+    ctx.fillStyle = colors.skin;
+    ctx.fillRect(sx + 5, sy + 4, 7, 8);
+    // hair / cap
+    ctx.fillStyle = colors.hair;
+    ctx.fillRect(sx + 4, sy + 3, 9, 4);
+    if (isPlayer) {
+      ctx.fillStyle = colors.cap;
+      ctx.fillRect(sx + 3, sy + 1, 11, 4);
+      ctx.fillStyle = '#f6f0dc';
+      ctx.fillRect(sx + 6, sy + 2, 4, 2);
+    } else {
+      ctx.fillRect(sx + 4, sy + 3, 9, 3);
+    }
+    // face
+    ctx.fillStyle = '#253245';
+    if (dir === 'up') {
+      // back of head only
+    } else if (dir === 'left') {
+      ctx.fillRect(sx + 4, sy + 8, 2, 2);
+    } else if (dir === 'right') {
+      ctx.fillRect(sx + 11, sy + 8, 2, 2);
+    } else {
+      ctx.fillRect(sx + 6, sy + 8, 2, 2);
+      ctx.fillRect(sx + 10, sy + 8, 2, 2);
+    }
+    // cap brim
+    if (isPlayer && dir !== 'up') {
+      ctx.fillStyle = colors.capDark;
+      ctx.fillRect(sx + (dir === 'left' ? 2 : dir === 'right' ? 10 : 7), sy + 5, 6, 2);
+    }
+  }
+
+  function drawPartner(x, y, frame) {
+    const sx = Math.round(x), sy = Math.round(y);
+    ctx.fillStyle = 'rgba(0,0,0,.2)';
+    ctx.fillRect(sx + 2, sy + 13, 10, 2);
+    ctx.fillStyle = '#7ce7ff';
+    ctx.fillRect(sx + 3, sy + 4, 8, 9);
+    ctx.fillRect(sx + 5, sy + 1, 5, 5);
+    ctx.fillStyle = '#2aa7e8';
+    ctx.fillRect(sx + 1, sy + 7, 2, 4);
+    ctx.fillRect(sx + 11, sy + 7, 2, 4);
+    ctx.fillStyle = '#08233a';
+    ctx.fillRect(sx + 5, sy + 6, 2, 2);
+    ctx.fillRect(sx + 8, sy + 6, 2, 2);
+    ctx.fillStyle = '#d4fbff';
+    ctx.fillRect(sx + 4, sy + 4, 2, 1);
+    if (frame) ctx.fillRect(sx + 7, sy + 11, 2, 1);
+  }
+
+  function drawScene() {
+    const p = SCENES[state.scene];
+    const player = state.player;
+    let camX = Math.round(player.px + 8 - VW / 2);
+    let camY = Math.round(player.py + 12 - VH / 2);
+    camX = Math.max(0, Math.min(32 * TILE - VW, camX));
+    camY = Math.max(0, Math.min(24 * TILE - VH, camY));
+    ctx.fillStyle = p.grass;
+    ctx.fillRect(0, 0, VW, VH);
+
+    const minX = Math.floor(camX / TILE), minY = Math.floor(camY / TILE);
+    for (let y = minY; y <= minY + 12; y++) {
+      for (let x = minX; x <= minX + 21; x++) {
+        if (x < 0 || y < 0 || x >= 32 || y >= 24) continue;
+        drawGroundTile(x, y, grid[y][x], x * TILE - camX, y * TILE - camY, p);
+      }
+    }
+    for (const f of flowers) {
+      if (f.x * TILE > camX - 16 && f.x * TILE < camX + VW && f.y * TILE > camY - 16 && f.y * TILE < camY + VH) drawFlower(f, p, camX, camY);
+    }
+    for (const f of fences) drawFence(f, p, camX, camY);
+    if (house) drawHouse(house, p, camX, camY);
+    for (const s of signs) drawSign(s, p, camX, camY);
+    for (const r of rocks) drawRock(r, p, camX, camY);
+    // sort trees by y so player can walk behind some
+    const visibleTrees = trees
+      .filter(([x, y]) => x * TILE > camX - 32 && x * TILE < camX + VW + 16 && y * TILE > camY - 32 && y * TILE < camY + VH + 16)
+      .sort((a, b) => a[1] - b[1]);
+    let playerDrawn = false;
+    for (const tree of visibleTrees) {
+      if (!playerDrawn && tree[1] * TILE > player.py + 8) {
+        drawActors(camX, camY, p);
+        playerDrawn = true;
+      }
+      drawTree(tree, p, camX, camY);
+    }
+    if (!playerDrawn) drawActors(camX, camY, p);
+    // foreground tall grass around player
+    if (grid[player.y]?.[player.x] === 'tall') {
+      const sx = player.px - camX, sy = player.py - camY;
+      ctx.fillStyle = p.tall;
+      for (let i = 0; i < 4; i++) {
+        ctx.fillRect(sx + 2 + i * 4, sy + 13, 2, 8);
+        ctx.fillRect(sx + 4 + i * 4, sy + 10, 2, 6);
+      }
+    }
+    drawWeather(p);
+  }
+
+  function drawActors(camX, camY, p) {
+    for (const npc of npcs) {
+      const bob = Math.sin(state.t * npc.pace + npc.phase) * 1;
+      drawTrainer(npc, npc.x * TILE - camX, npc.y * TILE - camY + bob, npc.dir, Math.floor(state.t * 2 + npc.phase) % 2,
+        { skin:'#f2d2b3', hair:'#4a3028', cap:'#7b5c8e', capDark:'#5e426d', shirt:'#b7c9dd', pack:'#7a9aae', pants:'#3c495b' }, false);
+    }
+    const partner = state.partner;
+    drawPartner(partner.px - camX, partner.py - camY - 4, partner.frame);
+    drawTrainer(state.player, state.player.px - camX, state.player.py - camY - 8, state.player.dir, state.player.frame,
+      { skin:'#f2d2b3', hair:'#3b2a24', cap:'#d85b4a', capDark:'#9d3a32', shirt:'#e7f3ed', pack:'#d8c684', pants:'#344562' }, true);
+  }
+
+  function drawWeather(p) {
+    if (state.weather === 'rain') {
+      ctx.strokeStyle = 'rgba(221,246,255,.55)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 55; i++) {
+        const x = (i * 47 + state.t * 120) % (VW + 20) - 10;
+        const y = (i * 31 + state.t * 250) % (VH + 20) - 10;
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 2, y + 5); ctx.stroke();
+      }
+    } else if (state.weather === 'snow') {
+      for (let i = 0; i < 45; i++) {
+        const x = (i * 53 + state.t * 16) % VW;
+        const y = (i * 37 + state.t * 22) % VH;
+        ctx.fillStyle = 'rgba(247,254,255,.85)';
+        ctx.fillRect(x, y, 2, 2);
+      }
+    }
+    if (state.time === 'dusk') {
+      ctx.fillStyle = 'rgba(255,142,92,.13)';
+      ctx.fillRect(0, 0, VW, VH);
+    } else if (state.time === 'night') {
+      ctx.fillStyle = 'rgba(4,13,32,.48)';
+      ctx.fillRect(0, 0, VW, VH);
+      // a few window lights
+      if (house) {
+        const x = (house.x + 1) * TILE, y = (house.y + 1) * TILE;
+        ctx.fillStyle = 'rgba(255,220,125,.9)';
+        ctx.fillRect(x + 3, y + 12, 4, 4);
+      }
+    }
+  }
+
+  function loop(now) {
+    if (!state.last) state.last = now;
+    const dt = Math.min(0.05, (now - state.last) / 1000);
+    state.last = now;
+    state.t += dt;
+    updatePlayer(dt);
+    drawScene();
+    requestAnimationFrame(loop);
+  }
+
+  function setActiveButtons() {
+    document.querySelectorAll('[data-time]').forEach(b => b.classList.toggle('active', b.dataset.time === state.time));
+    document.querySelectorAll('[data-weather]').forEach(b => b.classList.toggle('active', b.dataset.weather === state.weather));
+    document.getElementById('routeBtn').classList.toggle('active', state.scene === 'route');
+    document.getElementById('gymBtn').classList.toggle('active', state.scene === 'gym');
+    document.getElementById('coastBtn').classList.toggle('active', state.scene === 'coast');
+    const p = SCENES[state.scene];
+    document.getElementById('location').innerHTML = `${p.name}<small>${p.en}</small>`;
+    document.getElementById('timeChip').textContent = state.time === 'day' ? '白天 10:00' : state.time === 'dusk' ? '黄昏 17:00' : '夜晚 21:00';
+    document.getElementById('weatherChip').textContent = state.weather === 'sunny' ? '☀ 晴' : state.weather === 'rain' ? '☂ 细雨' : '❄ 雪';
+  }
+
+  function setScene(id) {
+    state.scene = id;
+    makeGrid(id);
+    makeObjects(id);
+    state.player = { x: 14, y: 10, px: 14 * TILE, py: 10 * TILE, dir: 'down', moving: false, fromX: 14, fromY: 10, toX: 14, toY: 10, progress: 0, frame: 0 };
+    state.partner = { x: 13, y: 9, px: 13 * TILE, py: 9 * TILE, dir: 'down', frame: 0 };
+    state.autoIndex = 0;
+    setActiveButtons();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    if (!['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].includes(key)) return;
+    e.preventDefault();
+    state.auto = false;
+    document.getElementById('autoToggle').checked = false;
+    if (key === 'arrowup' || key === 'w') startStep(0, -1);
+    if (key === 'arrowdown' || key === 's') startStep(0, 1);
+    if (key === 'arrowleft' || key === 'a') startStep(-1, 0);
+    if (key === 'arrowright' || key === 'd') startStep(1, 0);
+  });
+  document.getElementById('autoToggle').onchange = (e) => { state.auto = e.target.checked; };
+  document.getElementById('routeBtn').onclick = () => setScene('route');
+  document.getElementById('gymBtn').onclick = () => setScene('gym');
+  document.getElementById('coastBtn').onclick = () => setScene('coast');
+  document.querySelectorAll('[data-time]').forEach(b => b.onclick = () => { state.time = b.dataset.time; setActiveButtons(); });
+  document.querySelectorAll('[data-weather]').forEach(b => b.onclick = () => { state.weather = b.dataset.weather; setActiveButtons(); });
+
+  function resize() {
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720, 1.25);
+    stage.style.transform = `scale(${scale})`;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  makeGrid('route');
+  makeObjects('route');
+  setActiveButtons();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
