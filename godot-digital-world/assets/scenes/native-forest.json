@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "id": "native-forest",
+  "name": "Native Forest",
+  "zh": "原初森林",
+  "kind": "forest",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#0e302b",
+      "#356d53"
+    ],
+    "ground": [
+      "#1d4b37",
+      "#0d2a21"
+    ],
+    "accent": "#9af5b8",
+    "far": "#0f2e27"
+  },
+  "objects": [
+    {
+      "type": "tree",
+      "x": 70,
+      "y": 500,
+      "scale": 1.5
+    },
+    {
+      "type": "tree",
+      "x": 190,
+      "y": 486,
+      "scale": 1.8
+    },
+    {
+      "type": "tree",
+      "x": 310,
+      "y": 504,
+      "scale": 1.5
+    },
+    {
+      "type": "tree",
+      "x": 430,
+      "y": 482,
+      "scale": 1.9
+    },
+    {
+      "type": "tree",
+      "x": 560,
+      "y": 500,
+      "scale": 1.6
+    },
+    {
+      "type": "tree",
+      "x": 690,
+      "y": 486,
+      "scale": 1.8
+    },
+    {
+      "type": "tree",
+      "x": 820,
+      "y": 506,
+      "scale": 1.4
+    },
+    {
+      "type": "log",
+      "x": 300,
+      "y": 640,
+      "scale": 1.2
+    },
+    {
+      "type": "log",
+      "x": 660,
+      "y": 660,
+      "scale": 1.1
+    },
+    {
+      "type": "spore",
+      "x": 240,
+      "y": 600
+    },
+    {
+      "type": "spore",
+      "x": 500,
+      "y": 584
+    },
+    {
+      "type": "spore",
+      "x": 760,
+      "y": 616
+    }
+  ],
+  "actors": [
+    {
+      "species": "Patamon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 380,
+      "y": 636,
+      "scale": 1.1
+    },
+    {
+      "species": "Palmon",
+      "attribute": "data",
+      "stage": "baby2",
+      "x": 720,
+      "y": 650,
+      "scale": 0.95
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

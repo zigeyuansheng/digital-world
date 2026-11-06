@@ -35,6 +35,9 @@ Open this folder in **Godot 4.4** and run `scenes/FileCity.tscn`.
 - `scripts/creature.gd` — wandering/idle behaviour for the six Digimon
 - `scripts/ambient.gd` — floating data motes
 - `assets/scene_route01.json` — renderer-neutral scene manifest for the DSH plugin
+- `assets/scenes/<region>.json` — per-region scene manifests (9 File Island
+  regions) consumed by the panel's Canvas renderer; regenerate with
+  `../tools/build_scene_manifests.py`
 - `preview_route01.png` — asset-layout preview (1280×720) built from the same assets
 - `assets/tiles/terrain.png` — 16×16 pixel tile atlas
 - `assets/objects/` — cottage, tree, sign, rock, shadow

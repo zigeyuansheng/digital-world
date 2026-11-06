@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "id": "file-city",
+  "name": "File City",
+  "zh": "文件城",
+  "kind": "city",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#16324c",
+      "#49708a"
+    ],
+    "ground": [
+      "#315c4b",
+      "#1c3a31"
+    ],
+    "accent": "#f2c14e",
+    "far": "#23463e"
+  },
+  "objects": [
+    {
+      "type": "big-tree",
+      "x": 480,
+      "y": 520,
+      "scale": 2.2
+    },
+    {
+      "type": "terminal-tower",
+      "x": 760,
+      "y": 500,
+      "scale": 1.5
+    },
+    {
+      "type": "facility",
+      "facility": "gym",
+      "x": 120,
+      "y": 492,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "clinic",
+      "x": 214,
+      "y": 482,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "shop",
+      "x": 300,
+      "y": 492,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "incubator",
+      "x": 612,
+      "y": 482,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "nest",
+      "x": 712,
+      "y": 494,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "lab",
+      "x": 806,
+      "y": 484,
+      "scale": 1
+    },
+    {
+      "type": "facility",
+      "facility": "farm",
+      "x": 884,
+      "y": 496,
+      "scale": 1
+    },
+    {
+      "type": "fountain",
+      "x": 480,
+      "y": 648,
+      "scale": 1.3
+    },
+    {
+      "type": "lamp",
+      "x": 386,
+      "y": 604
+    },
+    {
+      "type": "lamp",
+      "x": 574,
+      "y": 604
+    }
+  ],
+  "actors": [
+    {
+      "species": "Patamon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 300,
+      "y": 612,
+      "scale": 1.15
+    },
+    {
+      "species": "Agumon",
+      "attribute": "vaccine",
+      "stage": "child",
+      "x": 664,
+      "y": 622,
+      "scale": 1.25
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

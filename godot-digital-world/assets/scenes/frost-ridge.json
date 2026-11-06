@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "id": "frost-ridge",
+  "name": "Frost Ridge",
+  "zh": "霜脊高地",
+  "kind": "snow",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#1b3550",
+      "#728fae"
+    ],
+    "ground": [
+      "#b8d7e8",
+      "#7694aa"
+    ],
+    "accent": "#d7f7ff",
+    "far": "#33506a"
+  },
+  "objects": [
+    {
+      "type": "iceberg",
+      "x": 150,
+      "y": 500,
+      "scale": 1.4
+    },
+    {
+      "type": "iceberg",
+      "x": 760,
+      "y": 486,
+      "scale": 1.5
+    },
+    {
+      "type": "pine-snow",
+      "x": 300,
+      "y": 516,
+      "scale": 1.2
+    },
+    {
+      "type": "pine-snow",
+      "x": 420,
+      "y": 500,
+      "scale": 1.3
+    },
+    {
+      "type": "pine-snow",
+      "x": 540,
+      "y": 516,
+      "scale": 1.2
+    },
+    {
+      "type": "hot-spring",
+      "x": 640,
+      "y": 650,
+      "scale": 1.3
+    },
+    {
+      "type": "snow-rock",
+      "x": 880,
+      "y": 620,
+      "scale": 1.1
+    }
+  ],
+  "actors": [
+    {
+      "species": "Gabumon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 360,
+      "y": 640,
+      "scale": 1.1
+    },
+    {
+      "species": "Gomamon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 560,
+      "y": 652,
+      "scale": 1.05
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

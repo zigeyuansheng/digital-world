@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "id": "cloudmire",
+  "name": "Cloudmire",
+  "zh": "云泽湿地",
+  "kind": "swamp",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#1b2d43",
+      "#536f86"
+    ],
+    "ground": [
+      "#2c5349",
+      "#18312d"
+    ],
+    "accent": "#a6d7e8",
+    "far": "#203a3c"
+  },
+  "objects": [
+    {
+      "type": "cloud",
+      "x": 200,
+      "y": 330,
+      "scale": 1.6
+    },
+    {
+      "type": "cloud",
+      "x": 560,
+      "y": 300,
+      "scale": 1.3
+    },
+    {
+      "type": "cloud",
+      "x": 820,
+      "y": 344,
+      "scale": 1.4
+    },
+    {
+      "type": "pool",
+      "x": 250,
+      "y": 646,
+      "scale": 1.3
+    },
+    {
+      "type": "pool",
+      "x": 610,
+      "y": 662,
+      "scale": 1.1
+    },
+    {
+      "type": "reed",
+      "x": 360,
+      "y": 620,
+      "scale": 1.1
+    },
+    {
+      "type": "reed",
+      "x": 720,
+      "y": 636,
+      "scale": 1.05
+    },
+    {
+      "type": "nest-tree",
+      "x": 480,
+      "y": 500,
+      "scale": 1.5
+    }
+  ],
+  "actors": [
+    {
+      "species": "Piyomon",
+      "attribute": "vaccine",
+      "stage": "child",
+      "x": 300,
+      "y": 604,
+      "scale": 1.1
+    },
+    {
+      "species": "Patamon",
+      "attribute": "data",
+      "stage": "baby2",
+      "x": 690,
+      "y": 628,
+      "scale": 0.95
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

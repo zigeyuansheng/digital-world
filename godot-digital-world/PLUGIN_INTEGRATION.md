@@ -41,6 +41,23 @@ The Godot project is the **scene asset layer**, not the game.
 ## Current scene
 
 Route 01 is the first File Island vertical slice. It has no player movement.
+
+## Web renderer contract (D2)
+
+Because the Host cannot run a Godot runtime, the scene layer is exported as
+renderer-neutral manifests and drawn by the panel's Canvas:
+
+- Manifests: `assets/scenes/<region>.json` (one per File Island region), plus
+  `assets/scenes/index.json`. Generate with `tools/build_scene_manifests.py`.
+- Each manifest carries `kind` (city / gym / forest / desert / coast / snow /
+  swamp / machine / volcano), a `palette`, placed `objects` and ambient `actors`.
+- `facilities` objects map to the seven File City facilities and are drawn taller
+  as `state.city.facilities[facility]` rises.
+- The plugin copies manifests to `plugins/dsh-plugin-digital-world/lib/scene-data.js`
+  (Host) and inlines them in `lib/client.js` (browser), so the panel renders the
+  region scene after a page refresh.
+- Panel view toggle: 现场 (region scene) / 岛屿 (island overview).
+
 All six visible actors are real Digimon:
 
 - Agumon

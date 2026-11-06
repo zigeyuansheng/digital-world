@@ -9,6 +9,8 @@
  */
 
 import { dexPage } from './world.js'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 /** Route served to the browser half. */
 export const PANEL_ROUTE = '/api/digital-world'
@@ -46,7 +48,7 @@ export async function readJsonBody(req) {
  * Build the route definition.
  * @param options - `{ store, logger? }`.
  */
-export function createPanelRoute({ store, logger }) {
+export function createPanelRoute({ store, logger, spriteDir }) {
   const log = (level, message) => {
     try {
       logger?.(level, message)
@@ -65,11 +67,29 @@ export function createPanelRoute({ store, logger }) {
     try {
       if (req.method === 'GET' || req.method === 'HEAD') {
         const url = new URL(req.url ?? PANEL_ROUTE, 'http://127.0.0.1')
+        const sprite = url.searchParams.get('sprite')
+        if (sprite !== null) {
+          if (spriteDir === undefined || !/^[A-Za-z0-9_.\-]+\.png$/.test(sprite)) {
+            send(404, { ok: false, error: 'sprite not found' })
+            return
+          }
+          try {
+            const buffer = await readFile(path.join(spriteDir, sprite))
+            res.statusCode = 200
+            res.setHeader('content-type', 'image/png')
+            res.setHeader('cache-control', 'public, max-age=86400')
+            res.end(buffer)
+          } catch {
+            send(404, { ok: false, error: 'sprite not found' })
+          }
+          return
+        }
         if (url.searchParams.get('dex') === '1') {
           const query = url.searchParams.get('q') ?? ''
           const page = Number(url.searchParams.get('page') ?? '1')
           const limit = Number(url.searchParams.get('limit') ?? '24')
-          send(200, { ok: true, ...dexPage(query, page, limit) })
+          const snapshot = await store.read()
+          send(200, { ok: true, ...dexPage(query, page, limit, snapshot.state.dex?.scan ?? {}, snapshot.state.dex?.elite ?? {}) })
           return
         }
         const snapshot = await store.read()

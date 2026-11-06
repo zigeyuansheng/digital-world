@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "scenes": [
+    {
+      "id": "file-city",
+      "name": "File City",
+      "zh": "文件城",
+      "kind": "city",
+      "file": "file-city.json"
+    },
+    {
+      "id": "green-gym",
+      "name": "Green Gym",
+      "zh": "苍苔训练场",
+      "kind": "gym",
+      "file": "green-gym.json"
+    },
+    {
+      "id": "native-forest",
+      "name": "Native Forest",
+      "zh": "原初森林",
+      "kind": "forest",
+      "file": "native-forest.json"
+    },
+    {
+      "id": "gear-savanna",
+      "name": "Gear Savanna",
+      "zh": "齿轮荒原",
+      "kind": "desert",
+      "file": "gear-savanna.json"
+    },
+    {
+      "id": "amber-coast",
+      "name": "Amber Coast",
+      "zh": "琥珀海岸",
+      "kind": "coast",
+      "file": "amber-coast.json"
+    },
+    {
+      "id": "frost-ridge",
+      "name": "Frost Ridge",
+      "zh": "霜脊高地",
+      "kind": "snow",
+      "file": "frost-ridge.json"
+    },
+    {
+      "id": "cloudmire",
+      "name": "Cloudmire",
+      "zh": "云泽湿地",
+      "kind": "swamp",
+      "file": "cloudmire.json"
+    },
+    {
+      "id": "factorial-ruins",
+      "name": "Factorial Ruins",
+      "zh": "机械废都",
+      "kind": "machine",
+      "file": "factorial-ruins.json"
+    },
+    {
+      "id": "dragonbone-caldera",
+      "name": "Dragonbone Caldera",
+      "zh": "龙骸火山",
+      "kind": "volcano",
+      "file": "dragonbone-caldera.json"
+    }
+  ]
+}

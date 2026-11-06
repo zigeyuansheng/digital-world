@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "id": "gear-savanna",
+  "name": "Gear Savanna",
+  "zh": "齿轮荒原",
+  "kind": "desert",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#3d301c",
+      "#9b6f38"
+    ],
+    "ground": [
+      "#73512c",
+      "#3c2d1c"
+    ],
+    "accent": "#e6bd65",
+    "far": "#4a3922"
+  },
+  "objects": [
+    {
+      "type": "windmill",
+      "x": 170,
+      "y": 486,
+      "scale": 1.3
+    },
+    {
+      "type": "windmill",
+      "x": 380,
+      "y": 500,
+      "scale": 1.1
+    },
+    {
+      "type": "windmill",
+      "x": 620,
+      "y": 486,
+      "scale": 1.25
+    },
+    {
+      "type": "windmill",
+      "x": 830,
+      "y": 502,
+      "scale": 1.05
+    },
+    {
+      "type": "gear",
+      "x": 300,
+      "y": 626,
+      "scale": 1.1
+    },
+    {
+      "type": "gear",
+      "x": 700,
+      "y": 648,
+      "scale": 0.95
+    },
+    {
+      "type": "dry-tree",
+      "x": 84,
+      "y": 560,
+      "scale": 1.2
+    },
+    {
+      "type": "dry-tree",
+      "x": 890,
+      "y": 574,
+      "scale": 1.1
+    },
+    {
+      "type": "rock",
+      "x": 500,
+      "y": 672,
+      "scale": 1
+    }
+  ],
+  "actors": [
+    {
+      "species": "Gabumon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 420,
+      "y": 636,
+      "scale": 1.1
+    },
+    {
+      "species": "Agumon",
+      "attribute": "virus",
+      "stage": "child",
+      "x": 640,
+      "y": 622,
+      "scale": 1.15
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

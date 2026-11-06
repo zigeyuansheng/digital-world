@@ -1,0 +1,614 @@
+{
+  "totals": {
+    "evolutionSource": "wikimon",
+    "fullCatalog": 1614,
+    "availableWithSprite": 595,
+    "removedWithoutSprite": 1019,
+    "availableByLevel": {
+      "ultimate": 159,
+      "perfect": 142,
+      "hybrid": 23,
+      "child": 79,
+      "adult": 123,
+      "baby2": 25,
+      "baby1": 24,
+      "armor": 20
+    },
+    "edgesKept": 9406,
+    "prunedSpecies": 517,
+    "danglingOfficialTargets": 0,
+    "inventedEdges": 0,
+    "illegalEdges": 0
+  },
+  "breadth": {
+    "avg": 10.4,
+    "median": 6,
+    "max": 60,
+    "zero": 65,
+    "warpEdges": 397,
+    "warpExamples": [
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "ancient-greymon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "apollomon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "dukemon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "hououmon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "shine-greymon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agnimon",
+        "fromLevel": "hybrid",
+        "to": "susanoomon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "black-war-greymon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "blitz-greymon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "dinorexmon",
+        "toLevel": "ultimate"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "megadramon",
+        "toLevel": "perfect"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "metal-greymon",
+        "toLevel": "perfect"
+      },
+      {
+        "from": "agumon",
+        "fromLevel": "child",
+        "to": "metal-greymon-virus",
+        "toLevel": "perfect"
+      }
+    ]
+  },
+  "baby1Reachability": {
+    "baby1Count": 24,
+    "canReach_adult": 23,
+    "canReach_perfect": 23,
+    "canReach_ultimate": 23
+  },
+  "canonicalLines": [
+    {
+      "line": "亚古兽线",
+      "chain": [
+        "Agumon",
+        "Greymon",
+        "Metal Greymon",
+        "War Greymon"
+      ],
+      "matchesOfficial": true,
+      "allHaveSprites": true
+    },
+    {
+      "line": "加布兽线",
+      "chain": [
+        "Gabumon",
+        "Garurumon",
+        "Were Garurumon",
+        "Metal Garurumon"
+      ],
+      "matchesOfficial": true,
+      "allHaveSprites": true
+    },
+    {
+      "line": "比丘兽线",
+      "chain": [
+        "Piyomon",
+        "Birdramon",
+        "Garudamon"
+      ],
+      "matchesOfficial": true,
+      "allHaveSprites": true
+    },
+    {
+      "line": "巴达兽线",
+      "chain": [
+        "Patamon",
+        "Angemon"
+      ],
+      "matchesOfficial": true,
+      "allHaveSprites": true
+    }
+  ],
+  "danglingSample": [],
+  "prunedSample": [
+    {
+      "id": "aero-v-dramon",
+      "dropped": [
+        "dorbickmon",
+        "metal-tyranomon",
+        "vermillimon",
+        "goddramon",
+        "imperialdramon-dragon-mode",
+        "v-mon",
+        "imperialdramon-fighter-mode",
+        "xv-mon",
+        "metamormon",
+        "tylomon",
+        "ulforce-v-dramon-x-antibody",
+        "ulforce-v-dramon-future-mode",
+        "victory-greymon"
+      ]
+    },
+    {
+      "id": "agnimon",
+      "dropped": [
+        "baboongamon",
+        "hookmon",
+        "magnamon-x-antibody",
+        "metal-tyranomon",
+        "minervamon"
+      ]
+    },
+    {
+      "id": "agumon",
+      "dropped": [
+        "agumon-black-x-antibody",
+        "agumon-yuki-no-kizuna",
+        "algomon-adult",
+        "boarmon",
+        "coatlmon",
+        "cyclomon",
+        "death-x-dorugamon",
+        "dinohumon",
+        "dinomon",
+        "flare-lizamon",
+        "geremon",
+        "gorimon",
+        "greymon-2010-anime-version",
+        "guardromon",
+        "hookmon",
+        "igamon",
+        "kyubimon-silver",
+        "leomon-x-antibody",
+        "meicoomon",
+        "nanimon",
+        "omekamon",
+        "revolmon",
+        "salamandamon",
+        "seadramon-x-antibody",
+        "sepikmon",
+        "v-mon",
+        "shoutmon-x7-superior-mode",
+        "tuskmon",
+        "xv-mon"
+      ]
+    },
+    {
+      "id": "agumon-x-antibody",
+      "dropped": [
+        "boarmon",
+        "coatlmon",
+        "death-x-dorugamon",
+        "dorbickmon",
+        "flare-lizamon",
+        "gorimon",
+        "guardromon",
+        "hookmon",
+        "igamon",
+        "kuwagamon-x-antibody",
+        "kyubimon-silver",
+        "leomon-x-antibody",
+        "maildramon",
+        "omekamon",
+        "revolmon",
+        "salamandamon",
+        "seadramon-x-antibody",
+        "sepikmon",
+        "tobucatmon",
+        "tyranomon-x-antibody",
+        "xv-mon"
+      ]
+    },
+    {
+      "id": "agumon-2006-anime-version",
+      "dropped": [
+        "agumon-black-x-antibody",
+        "agumon-yuki-no-kizuna",
+        "agumon-hakase",
+        "agumon-burst-mode",
+        "bao-huckmon",
+        "boarmon",
+        "coatlmon",
+        "cyclomon",
+        "darcmon",
+        "dorbickmon",
+        "flare-lizamon",
+        "gawappamon",
+        "gold-numemon",
+        "gorimon",
+        "guardromon",
+        "hookmon",
+        "igamon",
+        "karatuki-numemon",
+        "kyubimon-silver",
+        "leomon-x-antibody",
+        "maildramon",
+        "maquinamon",
+        "terriermon-assistant",
+        "pillomon",
+        "otamamon",
+        "omekamon",
+        "revolmon",
+        "salamandamon",
+        "seadramon-x-antibody",
+        "sepikmon",
+        "xv-mon"
+      ]
+    },
+    {
+      "id": "agumon-black",
+      "dropped": [
+        "agumon-black-x-antibody",
+        "agumon-yuki-no-kizuna",
+        "boarmon",
+        "coatlmon",
+        "cyclomon",
+        "death-x-dorugamon",
+        "pico-devimon",
+        "flare-lizamon",
+        "fugamon",
+        "geremon",
+        "gorimon",
+        "guardromon",
+        "hookmon",
+        "igamon",
+        "kyubimon-silver",
+        "leomon-x-antibody",
+        "maildramon",
+        "omekamon",
+        "revolmon",
+        "salamandamon",
+        "seadramon-x-antibody",
+        "sepikmon",
+        "tankmon",
+        "tuskmon",
+        "xv-mon"
+      ]
+    },
+    {
+      "id": "airdramon",
+      "dropped": [
+        "clockmon",
+        "revolmon",
+        "tankmon",
+        "igamon",
+        "porcupamon",
+        "guardromon",
+        "mechanorimon",
+        "delumon",
+        "bao-huckmon",
+        "targetmon",
+        "atlur-kabuterimon-red",
+        "kyukimon",
+        "imperialdramon-dragon-mode",
+        "v-mon",
+        "karatenmon",
+        "metal-tyranomon",
+        "parrotmon",
+        "phelesmon",
+        "gekomon",
+        "pumpmon",
+        "goddramon",
+        "hanumon",
+        "whamon-perfect"
+      ]
+    },
+    {
+      "id": "aldamon",
+      "dropped": [
+        "magnamon-x-antibody"
+      ]
+    },
+    {
+      "id": "alphamon",
+      "dropped": [
+        "imperialdramon-paladin-mode",
+        "jesmon-gx",
+        "ulforce-v-dramon-x-antibody",
+        "okuwamon-x-antibody",
+        "triceramon-x-antibody"
+      ]
+    },
+    {
+      "id": "alphamon-ouryuken",
+      "dropped": [
+        "death-x-mon"
+      ]
+    },
+    {
+      "id": "ancient-beatmon",
+      "dropped": [
+        "apocalymon"
+      ]
+    },
+    {
+      "id": "ancient-garurumon",
+      "dropped": [
+        "lucemon-satan-mode"
+      ]
+    },
+    {
+      "id": "ancient-greymon",
+      "dropped": [
+        "dorbickmon",
+        "lucemon-satan-mode"
+      ]
+    },
+    {
+      "id": "ancient-irismon",
+      "dropped": [
+        "lucemon-satan-mode",
+        "valdurmon",
+        "tyilinmon"
+      ]
+    },
+    {
+      "id": "ancient-megatheriumon",
+      "dropped": [
+        "apocalymon"
+      ]
+    },
+    {
+      "id": "ancient-mermaimon",
+      "dropped": [
+        "apocalymon",
+        "cendrillmon",
+        "lilithmon",
+        "shagaramon"
+      ]
+    },
+    {
+      "id": "ancient-sphinxmon",
+      "dropped": [
+        "apocalymon"
+      ]
+    },
+    {
+      "id": "ancient-troiamon",
+      "dropped": [
+        "apocalymon",
+        "lucemon-satan-mode"
+      ]
+    },
+    {
+      "id": "ancient-volcamon",
+      "dropped": [
+        "apocalymon",
+        "gattai-ancient-volcamon",
+        "peti-meramon",
+        "blue-meramon"
+      ]
+    },
+    {
+      "id": "ancient-wisemon",
+      "dropped": [
+        "black-seraphimon",
+        "lucemon-satan-mode"
+      ]
+    },
+    {
+      "id": "andiramon",
+      "dropped": [
+        "diablomon",
+        "duftmon",
+        "minervamon",
+        "ulforce-v-dramon-x-antibody",
+        "zhuqiaomon"
+      ]
+    },
+    {
+      "id": "andiramon-deva",
+      "dropped": [
+        "belphemon-sleep-mode",
+        "bastemon",
+        "diablomon",
+        "dijiangmon",
+        "duftmon",
+        "erlangmon",
+        "jougamon",
+        "lilithmon",
+        "minervamon",
+        "pandamon",
+        "queen-chessmon",
+        "shagaramon",
+        "zhuqiaomon"
+      ]
+    },
+    {
+      "id": "andromon",
+      "dropped": [
+        "boltmon",
+        "craniummon",
+        "craniummon-x-antibody",
+        "gokumon",
+        "bishop-chessmon-white",
+        "imperialdramon-dragon-mode",
+        "justimon-blitz-arm",
+        "metal-tyranomon",
+        "guardromon",
+        "whamon-perfect",
+        "shoutmon-x7-superior-mode"
+      ]
+    },
+    {
+      "id": "angemon",
+      "dropped": [
+        "witchmon",
+        "clockmon",
+        "revolmon",
+        "tankmon",
+        "igamon",
+        "porcupamon",
+        "bastemon",
+        "karatenmon",
+        "guardromon",
+        "mechanorimon",
+        "blue-meramon",
+        "bao-huckmon",
+        "targetmon",
+        "gorimon",
+        "xv-mon",
+        "holy-angemon-priest-mode",
+        "lady-devimon",
+        "lucemon-falldown-mode",
+        "evilmon",
+        "minotaurmon",
+        "v-mon",
+        "maildramon",
+        "manticoremon",
+        "marin-chimairamon",
+        "garurumon-x-antibody",
+        "gekomon",
+        "platinum-scumon",
+        "pumpmon",
+        "hanumon",
+        "whamon-perfect"
+      ]
+    },
+    {
+      "id": "angewomon",
+      "dropped": [
+        "angewomon-x-antibody",
+        "babamon",
+        "clavis-angemon",
+        "crossmon",
+        "garudamon-x-antibody",
+        "dynasmon-x-antibody",
+        "lilimon-x-antibody",
+        "atlur-kabuterimon-red",
+        "kyukimon",
+        "imperialdramon-paladin-mode",
+        "junomon",
+        "lady-devimon",
+        "lilithmon",
+        "lovely-angemon",
+        "mastemon",
+        "gargomon",
+        "sleipmon",
+        "ofanimon-falldown-mode",
+        "whamon-perfect",
+        "quantumon",
+        "rosemon-x-antibody",
+        "parrotmon",
+        "delumon",
+        "owlmon"
+      ]
+    },
+    {
+      "id": "angoramon",
+      "dropped": [
+        "dogmon",
+        "komondomon",
+        "porcupamon",
+        "publimon"
+      ]
+    },
+    {
+      "id": "ankylomon",
+      "dropped": [
+        "gekomon",
+        "dorbickmon",
+        "chamelemon",
+        "insekimon",
+        "v-mon",
+        "maildramon",
+        "marin-chimairamon",
+        "mermaimon",
+        "piranimon",
+        "scorpiomon",
+        "seahomon",
+        "minotaurmon",
+        "vermillimon",
+        "nise-drimogemon"
+      ]
+    },
+    {
+      "id": "anomalocarimon",
+      "dropped": [
+        "mermaimon",
+        "boltmon",
+        "pumpmon",
+        "cthyllamon",
+        "pipismon",
+        "ebemon-x-antibody",
+        "delumon",
+        "gulfmon",
+        "tekkamon",
+        "jumbo-gamemon",
+        "knightmon",
+        "mega-seadramon-x-antibody",
+        "metal-tyranomon",
+        "algomon-perfect",
+        "plesiomon-x-antibody",
+        "vulcanusmon"
+      ]
+    },
+    {
+      "id": "anomalocarimon-x-antibody",
+      "dropped": [
+        "cherubimon-virtue-x-antibody",
+        "cthyllamon",
+        "ebemon-x-antibody",
+        "tekkamon",
+        "leviamon",
+        "mega-seadramon-x-antibody",
+        "plesiomon-x-antibody"
+      ]
+    },
+    {
+      "id": "apollomon",
+      "dropped": [
+        "apollomon-whispered",
+        "grand-generamon",
+        "dorbickmon",
+        "splashmon-darkness-mode",
+        "gravimon",
+        "jupitermon-wrath-mode",
+        "jupitermon",
+        "shine-greymon-burst-mode",
+        "shoutmon-x7-superior-mode"
+      ]
+    }
+  ]
+}

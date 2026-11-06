@@ -11,8 +11,13 @@
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { SPRITE_INDEX } from './sprite-index.js'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
+
+/** Species that currently have a real sprite and may be used in the game. */
+const AVAILABLE_SPECIES = new Set(SPRITE_INDEX.map((entry) => entry.id))
+export const AVAILABLE_COUNT = AVAILABLE_SPECIES.size
 
 /** Fallback used only when the generated data file is missing during development. */
 const FALLBACK = {
@@ -47,8 +52,39 @@ function loadCatalog() {
 
 export const CATALOG = loadCatalog()
 export const SPECIES_LIST = CATALOG.species
-export const SPECIES_BY_ID = new Map(SPECIES_LIST.map((species) => [species.id, species]))
-export const SPECIES_BY_NAME = new Map(SPECIES_LIST.map((species) => [species.name.toLowerCase(), species]))
+
+/** Curated skill numbers for iconic moves (others are derived deterministically). */
+export const SKILL_OVERRIDES = (() => {
+  try {
+    const raw = readFileSync(path.join(HERE, '..', 'data', 'skills-overrides.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    return parsed !== null && typeof parsed === 'object' ? parsed : {}
+  } catch {
+    return {}
+  }
+})()
+
+/** Simplified-Chinese display-name overrides for species whose zh was English. */
+export const ZH_NAMES = (() => {
+  try {
+    const raw = readFileSync(path.join(HERE, '..', 'data', 'zh-names.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    return parsed !== null && typeof parsed === 'object' ? parsed : {}
+  } catch {
+    return {}
+  }
+})()
+
+/** Optional official-source evolution graph (Wikimon Evolves To), if built. */
+export const WIKIMON_EVOLUTIONS = (() => {
+  try {
+    const raw = readFileSync(path.join(HERE, '..', 'data', 'wikimon-evolutions.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    return parsed !== null && typeof parsed === 'object' && parsed.graph ? parsed.graph : null
+  } catch {
+    return null
+  }
+})()
 
 /** Level key -> numeric stage index. */
 export const LEVEL_ORDER = Object.freeze({
@@ -132,9 +168,27 @@ export function normalizeSpecies(species) {
   }
 }
 
-// Normalize once for every consumer.
-export const SPECIES = SPECIES_LIST.map(normalizeSpecies)
+// Normalize once, then keep only species that currently have a real pixel
+// sprite. No-art species are hidden until their art is added; evolution links
+// are pruned to the same set so nothing can evolve into a hidden species.
+export const SPECIES = SPECIES_LIST
+  .map(normalizeSpecies)
+  .filter((species) => AVAILABLE_SPECIES.has(species.id))
+  .map((species) => {
+    const wikiEntry = WIKIMON_EVOLUTIONS?.[species.id]
+    const source = wikiEntry !== undefined && Array.isArray(wikiEntry.to) ? wikiEntry.to : species.evolvesTo
+    const seen = new Set()
+    const evolvesTo = []
+    for (const id of source) {
+      if (!AVAILABLE_SPECIES.has(id) || seen.has(id)) continue
+      seen.add(id)
+      evolvesTo.push(id)
+    }
+    return { ...species, zh: ZH_NAMES[species.id] || species.zh, evolvesTo }
+  })
 export const SPECIES_MAP = new Map(SPECIES.map((species) => [species.id, species]))
+export const SPECIES_BY_ID = SPECIES_MAP
+export const SPECIES_BY_NAME = new Map(SPECIES.map((species) => [species.name.toLowerCase(), species]))
 
 /** @returns a species record by id, or undefined. */
 export function getSpecies(id) {

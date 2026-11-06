@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 *.tmp
 node_modules/
+tools/.cache/
+

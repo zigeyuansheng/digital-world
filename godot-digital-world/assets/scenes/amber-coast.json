@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "amber-coast",
+  "name": "Amber Coast",
+  "zh": "琥珀海岸",
+  "kind": "coast",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#173951",
+      "#688ba0"
+    ],
+    "ground": [
+      "#c99758",
+      "#7a5734"
+    ],
+    "accent": "#ffd07a",
+    "far": "#2a4a60"
+  },
+  "objects": [
+    {
+      "type": "palm",
+      "x": 120,
+      "y": 500,
+      "scale": 1.3
+    },
+    {
+      "type": "palm",
+      "x": 232,
+      "y": 512,
+      "scale": 1.1
+    },
+    {
+      "type": "shell",
+      "x": 420,
+      "y": 660
+    },
+    {
+      "type": "shell",
+      "x": 470,
+      "y": 672
+    },
+    {
+      "type": "dune",
+      "x": 700,
+      "y": 556,
+      "scale": 1.2
+    },
+    {
+      "type": "cave",
+      "x": 862,
+      "y": 540,
+      "scale": 1.2
+    }
+  ],
+  "actors": [
+    {
+      "species": "Gomamon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 320,
+      "y": 636,
+      "scale": 1.1
+    },
+    {
+      "species": "Piyomon",
+      "attribute": "vaccine",
+      "stage": "child",
+      "x": 590,
+      "y": 610,
+      "scale": 1.1
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "id": "factorial-ruins",
+  "name": "Factorial Ruins",
+  "zh": "机械废都",
+  "kind": "machine",
+  "base_resolution": [
+    320,
+    180
+  ],
+  "display_resolution": [
+    960,
+    720
+  ],
+  "palette": {
+    "sky": [
+      "#171c2b",
+      "#3c485c"
+    ],
+    "ground": [
+      "#3d4853",
+      "#1c242d"
+    ],
+    "accent": "#9ec8e8",
+    "far": "#222b38"
+  },
+  "objects": [
+    {
+      "type": "factory",
+      "x": 190,
+      "y": 500,
+      "scale": 1.4
+    },
+    {
+      "type": "factory",
+      "x": 720,
+      "y": 486,
+      "scale": 1.5
+    },
+    {
+      "type": "pipe",
+      "x": 400,
+      "y": 560,
+      "scale": 1.2
+    },
+    {
+      "type": "pipe",
+      "x": 520,
+      "y": 580,
+      "scale": 1.1
+    },
+    {
+      "type": "cable",
+      "x": 470,
+      "y": 640,
+      "scale": 1.2
+    },
+    {
+      "type": "wall",
+      "x": 880,
+      "y": 540,
+      "scale": 1.2
+    },
+    {
+      "type": "gear",
+      "x": 620,
+      "y": 668,
+      "scale": 0.9
+    }
+  ],
+  "actors": [
+    {
+      "species": "Agumon",
+      "attribute": "virus",
+      "stage": "child",
+      "x": 340,
+      "y": 636,
+      "scale": 1.15
+    },
+    {
+      "species": "Gabumon",
+      "attribute": "data",
+      "stage": "child",
+      "x": 760,
+      "y": 648,
+      "scale": 1.05
+    }
+  ],
+  "note": "Authored in the Godot scene layer; renderer-neutral manifest consumed by the DSH plugin."
+}

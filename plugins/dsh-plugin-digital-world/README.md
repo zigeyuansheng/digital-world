@@ -11,6 +11,11 @@ The game uses a generated **1,614-entry Wikimon snapshot** for species names, le
 Open the **数码世界 / Digital World** panel from the sidebar. The game has:
 
 - a 1280×720 pixel stage: island map on the left, HUD on the right
+- 两类左栏视图：**现场**（按当前区域名称渲染的专属场景，默认）与**岛屿**总览
+- 9 个区域各有清单驱动场景；File City 含中央巨树、旧终端塔与 7 个设施建筑，
+  设施等级越高建筑越完整
+- 真实数码兽像素图：场景角色、HUD 肖像、队伍/巢穴/对战与图鉴缩略图均优先使用
+  素材库精灵图（595/1614 个物种已匹配，其余回退程序化像素图）
 - a random starter Digitama that hatches into a random Baby I from a complete-growth lineage
 - multiple owned Digimon with a 12-slot DigiNest and a 3-slot battle party
 - feeding, cleaning, petting, sleeping, healing and six-stat training
@@ -32,6 +37,7 @@ Override `root` in `cordis.patch.yml` to use another directory.
 ## Files
 
 - `lib/game-data.js` — catalog loader, indexes, regions, stage mapping
+- `lib/scene-data.js` — generated region scene manifests (see repo `tools/build_scene_manifests.py`)
 - `lib/world.js` — pure game engine and action API
 - `lib/store.js` — serialized persistence
 - `lib/panel-route.js` — `/api/digital-world` route
